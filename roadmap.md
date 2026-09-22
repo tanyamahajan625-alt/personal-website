@@ -1,7 +1,7 @@
 # Roadmap
 
 - [x] Build casebook resume site (soft neobrutalist direction, real resume content)
-- [ ] Fix TS error in index.tsx (TAG_ROTATION indexing)
-- [ ] Review Instagram inspiration (https://www.instagram.com/p/DdTwHn8Fh68/) and adapt design if it changes direction
-- [ ] Verify build + screenshot preview
-- [ ] Confirm LinkedIn URL with user (guessed /in/tanyamahajan)
+- [x] Fix TS error in index.tsx (TAG_ROTATION indexing)
+- [x] Verify build + screenshot preview (build OK, accordions + case studies work, no page errors)
+- [ ] Review Instagram inspiration — BLOCKED: Instagram requires login; need the woman's actual website URL from the user
+- [ ] Confirm LinkedIn URL with user (guessed linkedin.com/in/tanyamahajan)

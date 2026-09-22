@@ -16,6 +16,7 @@
   --color-blue: oklch(0.769 0.058 255.9);
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-hand: "Caveat", "Segoe Script", cursive;
 }
 
 /*
@@ -188,4 +189,23 @@
 
 @utility bshadow-sm {
   box-shadow: 5px 5px 0 0 var(--color-ink);
+}
+
+/* Soft paper shadow for scrapbook cards */
+@utility pshadow {
+  box-shadow:
+    0 1px 2px oklch(0.264 0.013 41.6 / 0.07),
+    0 14px 34px -14px oklch(0.264 0.013 41.6 / 0.22);
+}
+
+/* Desk object entrance */
+@keyframes desk-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }

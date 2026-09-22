@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 const EMAIL = "iamtanyamahajan@gmail.com";
 const PHONE_DISPLAY = "+1 (872) 357-1825";
 const PHONE_TEL = "+18723571825";
-const LINKEDIN_URL = "https://www.linkedin.com/in/tanyamahajan";
+const LINKEDIN_URL = "https://www.linkedin.com/in/tanya-mahajan-344854218/";
 const SUBSTACK_URL = "https://substack.com/@tanyamahajan";
 
 type Accent = "peach" | "pink" | "sage" | "butter" | "blue";

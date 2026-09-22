@@ -4,6 +4,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Casebook design tokens (soft neobrutalist direction) */
+@theme {
+  --color-paper: oklch(0.948 0.019 83.1);
+  --color-ink: oklch(0.264 0.013 41.6);
+  --color-cream: oklch(0.974 0.014 84.6);
+  --color-peach: oklch(0.798 0.109 51.8);
+  --color-pink: oklch(0.766 0.09 358.7);
+  --color-sage: oklch(0.782 0.048 139.2);
+  --color-butter: oklch(0.869 0.111 88.3);
+  --color-blue: oklch(0.769 0.058 255.9);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
 /*
  * Design system definition.
  *
@@ -63,14 +77,14 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --background: oklch(0.948 0.019 83.1);
+  --foreground: oklch(0.264 0.013 41.6);
+  --card: oklch(0.974 0.014 84.6);
+  --card-foreground: oklch(0.264 0.013 41.6);
+  --popover: oklch(0.974 0.014 84.6);
+  --popover-foreground: oklch(0.264 0.013 41.6);
+  --primary: oklch(0.264 0.013 41.6);
+  --primary-foreground: oklch(0.974 0.014 84.6);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
@@ -137,8 +151,41 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+/* Neobrutalist block shadows */
+@utility bshadow-peach {
+  box-shadow: 8px 8px 0 0 var(--color-peach);
+}
+
+@utility bshadow-pink {
+  box-shadow: 8px 8px 0 0 var(--color-pink);
+}
+
+@utility bshadow-sage {
+  box-shadow: 8px 8px 0 0 var(--color-sage);
+}
+
+@utility bshadow-butter {
+  box-shadow: 8px 8px 0 0 var(--color-butter);
+}
+
+@utility bshadow-blue {
+  box-shadow: 8px 8px 0 0 var(--color-blue);
+}
+
+@utility bshadow-ink {
+  box-shadow: 8px 8px 0 0 var(--color-ink);
+}
+
+@utility bshadow-sm {
+  box-shadow: 5px 5px 0 0 var(--color-ink);
 }

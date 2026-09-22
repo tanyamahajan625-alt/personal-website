@@ -219,7 +219,7 @@ function ExperienceCard({ item, defaultOpen }: { item: ExperienceItem; defaultOp
             </ul>
             <div className="mt-5 flex flex-wrap gap-2">
               {item.tags.map((tag, i) => (
-                <Tag key={tag} label={tag} accent={TAG_ROTATION[i % TAG_ROTATION.length]} />
+                <Tag key={tag} label={tag} accent={TAG_ROTATION[i % TAG_ROTATION.length] ?? "peach"} />
               ))}
             </div>
           </div>

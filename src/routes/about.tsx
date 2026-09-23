@@ -22,9 +22,12 @@ function AboutPage() {
       <article className="personnel-letter mt-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_220px]">
           <div className="space-y-5 text-lg leading-relaxed text-ink/80">
-            <p>My path started with Economics and Finance at Ashoka University, then moved through UChicago Booth&apos;s Master in Management program into growth marketing, product positioning, and consumer psychology.</p>
-            <p>Chicago is the city I associate most with myself now: part classroom, part running route, part never-ending coffee shop ranking. My obsession with why consumers choose what they choose eventually became the Clever Consumer Club, where I write about brands, behavior, and the aspiration economy.</p>
-            <p>Back home in India are my family and Little Snowy, our dog. Off the clock, I reset through yoga, running, pickleball, photography, and the serious business of deciding which Chicago café deserves the next top spot.</p>
+            <p>Dear Reader,</p>
+            <p>Welcome to my corner of the internet!</p>
+            <p>If you strip away the growth strategy and analytics, at my core, I am someone powered by curiosity, movement, and a deep love for human connection.</p>
+            <p>I'm incapable of sitting still for long. I'm a big believer in movement as fuel—whether that's running along the lakefront, playing pickleball, trying new outdoor activities, or exploring new places through travel. Yoga, in particular, has become a grounding anchor in my life; it's my ultimate mental reset, and my dream is to eventually complete my Yoga Teacher Training certificate. When I'm not outdoors or on the mat, you'll usually find me on a continuous mission to rank every espresso shot and coffee shop in the city.</p>
+            <p>While my roots, my family, and my tiny furry soulmate—Little Snowy—are back home in India, Chicago is the city I associate with myself the most. There's an energy, grit, and warmth here that completely matches my wavelength. That same curiosity about people and places is what naturally led me to consumer psychology and writing my Substack—I just love understanding what makes people tick, whether in life, travel, or storytelling.</p>
+            <p>Whether you're here to talk growth, swap travel stories, share your favorite yoga flow, or debate the best coffee in Chicago, I'm so glad you stopped by!</p>
           </div>
           <div className="flex flex-col items-center justify-center border-t border-dashed border-ink/25 pt-7 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
             <img src={assetUrl(avatarAsset)} alt="Pixel-art portrait of Tanya" className="w-40 image-pixelated" />

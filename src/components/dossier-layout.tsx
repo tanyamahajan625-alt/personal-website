@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   ["Projects", "/projects"],
   ["Substack Memos", "/memos"],
   ["Personnel File", "/about"],
+  ["Photography", "/photography"],
   ["Contact", "/contact"],
 ] as const;
 
@@ -23,7 +24,7 @@ export function DossierHeader() {
             </Link>
           ))}
         </nav>
-        <Link to="/" search={{ desk: true }} className="return-to-desk">
+        <Link to="/" search={{}} className="return-to-desk">
           [ RETURN TO DESK ↑ ]
         </Link>
       </div>

@@ -87,9 +87,14 @@ function ExperiencePage() {
 
   return (
     <DossierPage code="SECTION A / ROLE LOGS" title="Filed Under: Work History & Role Logs">
-      <p className="mt-5 max-w-4xl font-mono text-sm leading-relaxed text-ink/70">
-        Inside the logs: Strategic execution across B2B SaaS GTM, enterprise analytics infrastructure, and high-velocity consumer acquisition.
-      </p>
+      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-4xl font-mono text-sm leading-relaxed text-ink/70">
+          Inside the logs: Strategic execution across B2B SaaS GTM, enterprise analytics infrastructure, and high-velocity consumer acquisition.
+        </p>
+        <Button asChild variant="link" className="h-auto shrink-0 font-mono text-xs text-file-red">
+          <a href={RESUME_URL} download="Tanya-Mahajan-Resume.pdf">[ DOWNLOAD_OFFICIAL_RESUME.PDF ]</a>
+        </Button>
+      </div>
 
       <div className="role-filter-bar mt-7" role="group" aria-label="Filter work history">
         {FILTERS.map((filter) => (
@@ -149,11 +154,6 @@ function ExperiencePage() {
         })}
       </div>
 
-      <div className="mt-12 border-t border-ink/20 pt-8 text-center">
-        <Button asChild variant="link" className="h-auto font-mono text-xs text-file-red">
-          <a href={RESUME_URL} download="Tanya-Mahajan-Resume.pdf">[ DOWNLOAD_OFFICIAL_RESUME.PDF ]</a>
-        </Button>
-      </div>
     </DossierPage>
   );
 }

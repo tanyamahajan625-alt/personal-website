@@ -274,10 +274,10 @@ function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode;
 function ImageArtifact({ src, alt, tag, text, onOpen }: { src: string; alt: string; tag: string; text: string; onOpen: (src: string, alt: string) => void }) {
   return (
     <figure className="campaign-media-card">
-      <button type="button" className="campaign-image-button" onClick={() => onOpen(src, alt)} aria-label={`Open ${tag}`}>
+      <Button type="button" variant="ghost" className="campaign-image-button" onClick={() => onOpen(src, alt)} aria-label={`Open ${tag}`}>
         <img src={src} alt={alt} />
         <span><Maximize2 aria-hidden className="size-4" /> Inspect</span>
-      </button>
+      </Button>
       <figcaption><strong>{tag}</strong><span>{text}</span></figcaption>
     </figure>
   );

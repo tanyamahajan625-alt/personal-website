@@ -78,6 +78,14 @@ function PortfolioDesk() {
               <span className="font-hand text-5xl leading-none font-semibold text-file-red sm:text-7xl">Hi! I&apos;m Tanya!</span>
               <span className="mt-6 max-w-2xl font-mono text-sm leading-relaxed sm:text-lg"> Welcome to my Website, find everything &quot;filed&quot; below :)</span>
               <span className="mt-10 border-b border-ink/40 pb-1 font-mono text-xs sm:text-sm">[click on the folder to learn more]</span>
+              <span className="mt-8 flex items-center justify-center gap-5 sm:gap-7">
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="folder-social-link" aria-label="Visit Tanya Mahajan's LinkedIn">
+                  <img src={assetUrl(linkedinAsset)} alt="Pixel-art LinkedIn logo" className="folder-social-img" />
+                </a>
+                <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="folder-social-link" aria-label="Visit Tanya Mahajan's Substack">
+                  <img src={assetUrl(substackAsset)} alt="Pixel-art Substack logo" className="folder-social-img" />
+                </a>
+              </span>
             </span>
           </Button>
         </div>

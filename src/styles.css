@@ -396,6 +396,22 @@
   image-rendering: pixelated;
 }
 
+.folder-resume-link {
+  margin-top: 1.25rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 28%, transparent);
+  letter-spacing: 0.04em;
+  transition: transform 160ms steps(2), color 160ms ease, border-color 160ms ease;
+}
+
+.folder-resume-link:hover,
+.folder-resume-link:focus-visible {
+  transform: translate(-1px, -2px);
+  color: var(--color-file-red);
+  border-color: color-mix(in oklab, var(--color-file-red) 60%, transparent);
+  outline: none;
+}
+
 .desktop-grid {
   position: relative;
 }

@@ -9,7 +9,7 @@ import laptopAsset from "@/assets/pixel/laptop_icon.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({ desk: search.desk === true || search.desk === "true" }),
+  validateSearch: (search: Record<string, unknown>): { desk?: boolean } => ({ desk: search.desk === true || search.desk === "true" ? true : undefined }),
   head: () => ({
     meta: [
       { title: "Tanya Mahajan — Interactive Marketing Portfolio" },

@@ -80,7 +80,6 @@
 }
 
 :root {
-  --paper-texture-image: url("./assets/crinkled-paper.jpg");
   --radius: 0.625rem;
   --background: oklch(0.948 0.019 83.1);
   --foreground: oklch(0.264 0.013 41.6);
@@ -164,7 +163,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     min-height: 100dvh;
-    background-image: var(--paper-texture-image);
+    background-image: url("./assets/crinkled-paper.jpg");
     background-size: 48rem 48rem;
     background-position: center top;
     background-repeat: repeat;
@@ -242,7 +241,7 @@
 .paper-texture,
 .folder-overlay {
   background-color: var(--color-paper);
-  background-image: var(--paper-texture-image);
+  background-image: url("./assets/crinkled-paper.jpg");
   background-size: 48rem 48rem;
   background-position: center top;
   background-repeat: repeat;
@@ -254,7 +253,7 @@
   z-index: 100;
   border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 20%, transparent);
   background-color: color-mix(in oklab, var(--color-paper) 93%, transparent);
-  background-image: var(--paper-texture-image);
+  background-image: url("./assets/crinkled-paper.jpg");
   background-size: 48rem 48rem;
   background-position: center top;
   backdrop-filter: blur(8px);
@@ -524,7 +523,7 @@
   overflow: auto;
   border: 1px solid color-mix(in oklab, var(--color-ink) 28%, transparent);
   background-color: var(--color-paper);
-  background-image: var(--paper-texture-image);
+  background-image: url("./assets/crinkled-paper.jpg");
   background-size: 48rem 48rem;
   background-position: center top;
   padding: clamp(1.5rem, 5vw, 3rem);

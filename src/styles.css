@@ -364,6 +364,24 @@
   position: relative;
 }
 
+.desk-return-sign {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 20;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 35%, transparent);
+  background: var(--color-manila);
+  padding: 0.7rem 0.9rem;
+  box-shadow: 4px 4px 0 color-mix(in oklab, var(--color-ink) 16%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.desk-return-sign:hover {
+  color: var(--color-file-red);
+}
+
 .pixel-link {
   position: absolute;
   display: flex;
@@ -428,9 +446,11 @@
 .pixel-delay-3 { animation-delay: -0.8s; animation-duration: 2.9s; }
 .pixel-delay-4 { animation-delay: -1.1s; animation-duration: 3.4s; }
 .pixel-delay-5 { animation-delay: -1.4s; animation-duration: 3s; }
+.pixel-delay-6 { animation-delay: -1.7s; animation-duration: 3.1s; }
 
 .desk-memos { left: 7%; top: 8%; }
-.desk-about { right: 4%; top: 9%; width: clamp(10rem, 27vw, 18rem); }
+.desk-about { left: 39%; top: 3%; width: clamp(7rem, 17vw, 11rem); }
+.desk-photography { right: 4%; top: 8%; width: clamp(9rem, 23vw, 15rem); }
 .desk-experience { left: 3%; top: 47%; }
 .desk-projects { left: 34%; top: 51%; width: clamp(9rem, 24vw, 16rem); }
 .desk-contact { right: 8%; top: 42%; width: clamp(8.5rem, 21vw, 14rem); }
@@ -526,10 +546,12 @@
 @media (max-width: 639px) {
   .desktop-grid { min-height: 680px; }
   .desk-memos { left: 2%; top: 5%; }
-  .desk-about { right: 0; top: 7%; }
+  .desk-about { left: 38%; top: 2%; }
+  .desk-photography { right: 0; top: 8%; }
   .desk-experience { left: 1%; top: 37%; }
   .desk-projects { left: 28%; top: 59%; }
   .desk-contact { right: 2%; top: 36%; }
+  .desk-return-sign { top: 0.75rem; right: 0.75rem; font-size: 0.55rem; }
   .memo-form { align-items: stretch; flex-direction: column; }
   .dossier-page { padding-block: 3.5rem; }
   .folder-tab { top: -1.8rem; height: 2.2rem; }

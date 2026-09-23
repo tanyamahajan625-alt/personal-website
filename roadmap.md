@@ -9,7 +9,10 @@
   - [x] Build Experience page
   - [x] Build Projects page
   - [x] Build Substack Memos page
-  - [x] Build Personnel File page with photography viewer
+  - [x] Build Personnel File page
+  - [x] Separate the camera and books desktop icons
+  - [x] Build dedicated Photography page
+  - [x] Route every Return to Desk sign to the folder landing
   - [x] Build Contact page with resume download
   - [x] Verify desktop and mobile navigation
 - [ ] Add Tanya's personal photography shots when supplied

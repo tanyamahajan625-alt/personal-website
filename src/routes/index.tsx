@@ -1,8 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import avatarAsset from "@/assets/pixel/about_me.png.asset.json";
-import cameraAsset from "@/assets/pixel/icon_pictures.png.asset.json";
-import booksAsset from "@/assets/pixel/icon_research.png.asset.json";
+import cameraAsset from "@/assets/pixel/icon_pictures-2.png.asset.json";
+import booksAsset from "@/assets/pixel/icon_research-2.png.asset.json";
 import notepadAsset from "@/assets/pixel/portfolio_icon.png.asset.json";
 import filesAsset from "@/assets/pixel/resume_icon.png.asset.json";
 import laptopAsset from "@/assets/pixel/laptop_icon.png.asset.json";
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 
 const assetUrl = (asset: { url: string }) => asset.url;
 
-function DesktopLink({ to, label, className, delayClass, children }: { to: "/experience" | "/projects" | "/memos" | "/about" | "/contact"; label: string; className: string; delayClass: string; children: ReactNode }) {
+function DesktopLink({ to, label, className, delayClass, children }: { to: "/experience" | "/projects" | "/memos" | "/about" | "/photography" | "/contact"; label: string; className: string; delayClass: string; children: ReactNode }) {
   return (
     <Link to={to} preload="intent" className={`pixel-link ${delayClass} ${className}`} aria-label={`Open ${label}`}>
       <span className="pixel-art">{children}</span>
@@ -45,6 +45,13 @@ function PortfolioDesk() {
     document.body.style.overflow = folderOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [folderOpen]);
+
+  useEffect(() => {
+    if (!desk) {
+      setFolderOpen(true);
+      setFolderLeaving(false);
+    }
+  }, [desk]);
 
   const dismissFolder = () => {
     if (folderLeaving) return;
@@ -74,11 +81,13 @@ function PortfolioDesk() {
       ) : null}
 
       <section className="flex min-h-dvh items-center px-4 py-10">
+        <Link to="/" search={{}} className="desk-return-sign">[ RETURN TO DESK ↑ ]</Link>
         <div className="mx-auto w-full max-w-6xl">
           <p className="text-center font-mono text-xs tracking-[0.12em] sm:text-sm">[click icons to learn more]</p>
           <div className="desktop-grid mx-auto mt-6 min-h-[650px] max-w-5xl sm:min-h-[720px]">
             <DesktopLink to="/memos" label="Substack Memos" delayClass="pixel-delay-1" className="desk-memos"><img src={assetUrl(notepadAsset)} alt="Pixel-art notepad and pen" /></DesktopLink>
-            <DesktopLink to="/about" label="Personnel File" delayClass="pixel-delay-2" className="desk-about"><span className="flex items-end justify-center gap-1"><img src={assetUrl(cameraAsset)} alt="Pixel-art camera" className="w-[62%]" /><img src={assetUrl(booksAsset)} alt="Pixel-art book stack" className="w-[35%]" /></span></DesktopLink>
+            <DesktopLink to="/about" label="Personnel File" delayClass="pixel-delay-2" className="desk-about"><img src={assetUrl(booksAsset)} alt="Pixel-art book stack" /></DesktopLink>
+            <DesktopLink to="/photography" label="Photography" delayClass="pixel-delay-6" className="desk-photography"><img src={assetUrl(cameraAsset)} alt="Pixel-art camera" /></DesktopLink>
             <DesktopLink to="/experience" label="Experience" delayClass="pixel-delay-3" className="desk-experience"><img src={assetUrl(filesAsset)} alt="Pixel-art file stack" /></DesktopLink>
             <DesktopLink to="/projects" label="Projects" delayClass="pixel-delay-4" className="desk-projects"><img src={assetUrl(laptopAsset)} alt="Pixel-art laptop" /></DesktopLink>
             <DesktopLink to="/contact" label="Contact" delayClass="pixel-delay-5" className="desk-contact"><img src={assetUrl(avatarAsset)} alt="Pixel-art avatar of Tanya Mahajan" /></DesktopLink>

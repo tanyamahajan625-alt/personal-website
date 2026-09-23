@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import avatarAsset from "@/assets/pixel/about_me.png.asset.json";
-import cameraAsset from "@/assets/pixel/icon_pictures.png.asset.json";
 import { DossierPage } from "@/components/dossier-layout";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -20,7 +17,6 @@ export const Route = createFileRoute("/about")({
 const assetUrl = (asset: { url: string }) => asset.url;
 
 function AboutPage() {
-  const [photographyOpen, setPhotographyOpen] = useState(false);
   return (
     <DossierPage code="SECTION D / APPROVED FOR RELEASE" title="Personnel File: Off-the-Clock Data">
       <article className="personnel-letter mt-10">
@@ -35,22 +31,10 @@ function AboutPage() {
             <p className="mt-4 text-center font-mono text-[10px] tracking-[0.12em]">SUBJECT: T. MAHAJAN<br />LOCATION: CHICAGO, IL</p>
           </div>
         </div>
-        <div className="mt-10 flex flex-col items-start gap-5 border-t border-ink/20 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-ink/20 pt-6">
           <p className="font-mono text-xs font-medium uppercase tracking-[0.1em]">Approved for external release. Powered by coffee, movement, and consumer psychology.</p>
-          <Button type="button" variant="ghost" onClick={() => setPhotographyOpen(true)} className="h-auto shrink-0 rounded-none p-0 hover:bg-transparent">
-            <img src={assetUrl(cameraAsset)} alt="Open Tanya's photography file" className="w-24 image-pixelated transition-transform hover:scale-110" />
-            <span className="font-mono text-[10px]">[ PHOTOGRAPHY ]</span>
-          </Button>
         </div>
       </article>
-      {photographyOpen ? (
-        <div className="photo-modal" role="dialog" aria-modal="true" aria-labelledby="photography-title" onClick={() => setPhotographyOpen(false)}>
-          <article className="photo-file" onClick={(event) => event.stopPropagation()}>
-            <div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[10px] tracking-[0.16em] text-file-red">PERSONAL ARCHIVE / CANON</p><h2 id="photography-title" className="mt-2 text-3xl font-semibold">Photography Contact Sheet</h2></div><Button type="button" variant="ghost" size="icon" onClick={() => setPhotographyOpen(false)} aria-label="Close photography file" className="rounded-none font-mono text-xl">×</Button></div>
-            <div className="photo-placeholder mt-8"><img src={assetUrl(cameraAsset)} alt="Pixel-art Canon camera" className="w-32 image-pixelated" /><p className="mt-5 font-hand text-3xl">Personal shots coming soon.</p><p className="mt-2 max-w-md text-center font-mono text-xs leading-relaxed text-ink/60">This contact sheet is ready for the photographs Tanya selects for her archive.</p></div>
-          </article>
-        </div>
-      ) : null}
     </DossierPage>
   );
 }

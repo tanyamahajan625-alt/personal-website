@@ -472,10 +472,10 @@
 .pixel-delay-6 { animation-delay: -1.7s; animation-duration: 3.1s; }
 
 .desk-memos { left: 7%; top: 8%; }
-.desk-about { left: 39%; top: 3%; width: clamp(7rem, 17vw, 11rem); }
+.desk-about { left: 38%; top: 3%; width: clamp(9rem, 22vw, 14rem); }
 .desk-photography { right: 4%; top: 8%; width: clamp(9rem, 23vw, 15rem); }
 .desk-experience { left: 3%; top: 47%; }
-.desk-projects { left: 34%; top: 51%; width: clamp(9rem, 24vw, 16rem); }
+.desk-projects { left: 34%; top: 43%; width: clamp(7.5rem, 19vw, 12.5rem); }
 .desk-contact { right: 8%; top: 42%; width: clamp(8.5rem, 21vw, 14rem); }
 
 .dossier-page {
@@ -568,10 +568,10 @@
 @media (max-width: 639px) {
   .desktop-grid { min-height: 680px; }
   .desk-memos { left: 2%; top: 5%; }
-  .desk-about { left: 38%; top: 2%; }
+  .desk-about { left: 37%; top: 2%; width: clamp(8rem, 24vw, 12rem); }
   .desk-photography { right: 0; top: 8%; }
   .desk-experience { left: 1%; top: 37%; }
-  .desk-projects { left: 28%; top: 59%; }
+  .desk-projects { left: 28%; top: 52%; width: clamp(7rem, 20vw, 11rem); }
   .desk-contact { right: 2%; top: 36%; }
   .desk-return-sign { top: 0.75rem; right: 0.75rem; font-size: 0.55rem; }
   .memo-form { align-items: stretch; flex-direction: column; }

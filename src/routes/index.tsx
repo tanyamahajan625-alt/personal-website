@@ -10,7 +10,7 @@ import linkedinAsset from "@/assets/pixel/pixel_linkedin.png.asset.json";
 import substackAsset from "@/assets/pixel/pixel_substack.png.asset.json";
 import folderGraphic from "@/assets/pixel/folder-graphic.png";
 import { Button } from "@/components/ui/button";
-import { LINKEDIN_URL, SUBSTACK_URL } from "@/lib/resume-data";
+import { LINKEDIN_URL, RESUME_URL, SUBSTACK_URL } from "@/lib/resume-data";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): { desk?: boolean } =>
@@ -85,6 +85,9 @@ function PortfolioDesk() {
                   <img src={assetUrl(substackAsset)} alt="Pixel-art Substack logo" className="folder-social-img" />
                 </a>
               </span>
+              <a href={RESUME_URL} onClick={(e) => e.stopPropagation()} download className="folder-resume-link font-mono text-[0.6rem] sm:text-[0.7rem] text-ink" aria-label="Download Tanya Mahajan's resume PDF">
+                [ Download Resume.pdf ↓ ]
+              </a>
             </span>
           </Button>
         </div>

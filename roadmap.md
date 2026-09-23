@@ -17,3 +17,4 @@
   - [x] Verify desktop and mobile navigation
 - [ ] Add Tanya's personal photography shots when supplied
 - [x] Removed backgrounds from LinkedIn + Substack logo buttons
+- [x] Enhance Work History with role filters, PMM-focused copy, expandable breakdowns, and resume download

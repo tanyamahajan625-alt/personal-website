@@ -523,6 +523,51 @@
   font-size: 0.65rem;
 }
 
+.role-filter-bar {
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 25%, transparent);
+  background: color-mix(in oklab, var(--color-cream) 76%, transparent);
+  padding: 0.3rem;
+  box-shadow: 3px 3px 0 color-mix(in oklab, var(--color-ink) 13%, transparent);
+}
+
+.role-filter-button {
+  height: 2rem;
+  border-radius: 0;
+  padding-inline: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: color-mix(in oklab, var(--color-ink) 70%, transparent);
+}
+
+.role-filter-button[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.role-focus-stamp {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--color-file-red);
+  background: color-mix(in oklab, var(--color-pink) 24%, var(--color-cream));
+  padding: 0.35rem 0.5rem;
+  box-shadow: 3px 3px 0 color-mix(in oklab, var(--color-file-red) 23%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1.35;
+  color: var(--color-file-red);
+  text-transform: uppercase;
+}
+
+.role-breakdown {
+  border-left: 3px solid var(--color-file-red);
+  background: color-mix(in oklab, var(--color-paper) 72%, transparent);
+  padding: 0.85rem 1rem;
+}
+
 .memo-form {
   display: flex;
   align-items: center;

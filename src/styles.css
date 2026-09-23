@@ -2,10 +2,6 @@
 @source "../src";
 @import "tw-animate-css";
 
-:root {
-  --paper-texture-image: url("./assets/crinkled-paper.jpg");
-}
-
 @custom-variant dark (&:is(.dark *));
 
 /* Casebook design tokens (soft neobrutalist direction) */
@@ -84,6 +80,7 @@
 }
 
 :root {
+  --paper-texture-image: url("./assets/crinkled-paper.jpg");
   --radius: 0.625rem;
   --background: oklch(0.948 0.019 83.1);
   --foreground: oklch(0.264 0.013 41.6);

@@ -14,7 +14,7 @@ export function DossierHeader() {
   return (
     <header className="dossier-header">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <Link to="/" search={{ desk: true }} className="shrink-0 font-mono text-xs font-semibold tracking-[0.08em] uppercase sm:text-sm">
+        <Link to="/" search={{}} className="shrink-0 font-mono text-xs font-semibold tracking-[0.08em] uppercase sm:text-sm">
           Tanya Mahajan
         </Link>
         <nav className="dossier-nav" aria-label="Portfolio pages">

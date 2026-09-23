@@ -46,6 +46,13 @@ function PortfolioDesk() {
     return () => { document.body.style.overflow = ""; };
   }, [folderOpen]);
 
+  useEffect(() => {
+    if (!desk) {
+      setFolderOpen(true);
+      setFolderLeaving(false);
+    }
+  }, [desk]);
+
   const dismissFolder = () => {
     if (folderLeaving) return;
     setFolderLeaving(true);

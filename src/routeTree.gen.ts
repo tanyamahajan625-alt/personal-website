@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as MemosRouteImport } from './routes/memos'
+import { Route as PhotographyRouteImport } from './routes/photography'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ToolkitRouteImport } from './routes/toolkit'
 import { Route as WritingRouteImport } from './routes/writing'
@@ -43,6 +44,11 @@ const MemosRoute = MemosRouteImport.update({
   path: '/memos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhotographyRoute = PhotographyRouteImport.update({
+  id: '/photography',
+  path: '/photography',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/memos': typeof MemosRoute
+  '/photography': typeof PhotographyRoute
   '/projects': typeof ProjectsRoute
   '/toolkit': typeof ToolkitRoute
   '/writing': typeof WritingRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/memos': typeof MemosRoute
+  '/photography': typeof PhotographyRoute
   '/projects': typeof ProjectsRoute
   '/toolkit': typeof ToolkitRoute
   '/writing': typeof WritingRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/memos': typeof MemosRoute
+  '/photography': typeof PhotographyRoute
   '/projects': typeof ProjectsRoute
   '/toolkit': typeof ToolkitRoute
   '/writing': typeof WritingRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/memos'
+    | '/photography'
     | '/projects'
     | '/toolkit'
     | '/writing'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/memos'
+    | '/photography'
     | '/projects'
     | '/toolkit'
     | '/writing'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/experience'
     | '/memos'
+    | '/photography'
     | '/projects'
     | '/toolkit'
     | '/writing'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
   MemosRoute: typeof MemosRoute
+  PhotographyRoute: typeof PhotographyRoute
   ProjectsRoute: typeof ProjectsRoute
   ToolkitRoute: typeof ToolkitRoute
   WritingRoute: typeof WritingRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MemosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/photography': {
+      id: '/photography'
+      path: '/photography'
+      fullPath: '/photography'
+      preLoaderRoute: typeof PhotographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
   MemosRoute: MemosRoute,
+  PhotographyRoute: PhotographyRoute,
   ProjectsRoute: ProjectsRoute,
   ToolkitRoute: ToolkitRoute,
   WritingRoute: WritingRoute,

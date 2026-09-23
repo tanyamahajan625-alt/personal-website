@@ -85,9 +85,9 @@ function PortfolioDesk() {
                   <img src={assetUrl(substackAsset)} alt="Pixel-art Substack logo" className="folder-social-img" />
                 </a>
               </span>
-              <a href={RESUME_URL} onClick={(e) => e.stopPropagation()} download className="folder-resume-link font-mono text-[0.6rem] sm:text-[0.7rem] text-ink" aria-label="Download Tanya Mahajan's resume PDF">
-                [ Download Resume.pdf ↓ ]
-              </a>
+              <Button asChild variant="default" size="sm" className="mt-7 h-auto rounded-none border border-ink/15 bg-file-red px-4 py-2 font-mono text-[0.6rem] font-semibold tracking-wide text-cream shadow-[3px_3px_0_0_color-mix(in_oklab,var(--color-ink)_30%,transparent)] transition-transform hover:bg-ink hover:text-cream sm:text-[0.7rem]" >
+                <a href={RESUME_URL} onClick={(e) => e.stopPropagation()} download aria-label="Download Tanya Mahajan's resume PDF">[ Download Resume.pdf ↓ ]</a>
+              </Button>
             </span>
           </Button>
         </div>

@@ -1,73 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageShell, PaperCard } from "@/components/scrapbook";
-import {
-  EMAIL,
-  LINKEDIN_URL,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  RESUME_URL,
-  SUBSTACK_URL,
-} from "@/lib/resume-data";
+import { DossierPage } from "@/components/dossier-layout";
+import { Button } from "@/components/ui/button";
+import { EMAIL, LINKEDIN_URL, RESUME_URL, SUBSTACK_URL } from "@/lib/resume-data";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "say hi — tanya mahajan" },
-      {
-        name: "description",
-        content:
-          "Get in touch with Tanya Mahajan — email, LinkedIn, phone, Substack, and a downloadable resume.",
-      },
-      { property: "og:title", content: "say hi — tanya mahajan" },
-      {
-        property: "og:description",
-        content: "Email, LinkedIn, phone and Substack — all the ways to reach Tanya Mahajan.",
-      },
-      { property: "og:type", content: "profile" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => ({ meta: [
+    { title: "Contact — Tanya Mahajan" },
+    { name: "description", content: "Email Tanya Mahajan, find her on LinkedIn or Substack, and download her full resume." },
+    { property: "og:title", content: "Contact — Tanya Mahajan" },
+    { property: "og:description", content: "Open a channel with Tanya Mahajan in Chicago." },
+    { property: "og:type", content: "profile" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: ContactPage,
 });
 
 const LINKS = [
-  { label: "email", value: EMAIL, href: `mailto:${EMAIL}` },
-  { label: "linkedin", value: "tanya-mahajan", href: LINKEDIN_URL },
-  { label: "phone", value: PHONE_DISPLAY, href: `tel:${PHONE_TEL}` },
-  { label: "substack", value: "clever consumer club", href: SUBSTACK_URL },
-  { label: "resume", value: "download the pdf", href: RESUME_URL },
+  { label: "Email Tanya", href: `mailto:${EMAIL}`, external: false, primary: false },
+  { label: "LinkedIn", href: LINKEDIN_URL, external: true, primary: false },
+  { label: "Substack", href: SUBSTACK_URL, external: true, primary: false },
+  { label: "Download Full Resume PDF ↓", href: RESUME_URL, external: true, primary: true },
 ];
 
 function ContactPage() {
   return (
-    <PageShell title="say hi!" crumb="contact · chicago, il">
-      <PaperCard tilt={-0.6}>
-        <p className="font-hand text-2xl leading-snug text-pretty sm:text-3xl">
-          Always up for a conversation about consumers, campaigns, or coffee.
-        </p>
-        <ul className="mt-7 divide-y divide-ink/10">
+    <DossierPage code="SECTION E / OPEN CHANNEL" title="Transmission Channel // Drop a Note in My Inbox" intro="Always up for a conversation about consumers, campaigns, or coffee.">
+      <article className="contact-file mt-10">
+        <p className="font-hand text-3xl leading-snug sm:text-4xl">Let&apos;s make something people remember.</p>
+        <p className="mt-5 font-mono text-sm text-ink/65">{EMAIL}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
           {LINKS.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
-                className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-peach"
-              >
-                <span className="font-mono text-[11px] tracking-[0.18em] text-ink/55 uppercase">
-                  {link.label}
-                </span>
-                <span className="text-right font-medium break-all">
-                  {link.value}
-                  <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">
-                    →
-                  </span>
-                </span>
-              </a>
-            </li>
+            <Button key={link.label} asChild variant={link.primary ? "default" : "outline"} size="lg" className={`h-12 rounded-none font-mono text-xs ${link.primary ? "bg-file-red text-cream hover:bg-ink" : "bg-cream/70 text-ink hover:bg-butter"}`}>
+              <a href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noreferrer" : undefined}>[ {link.label} ]</a>
+            </Button>
           ))}
-        </ul>
-      </PaperCard>
-    </PageShell>
+        </div>
+        <p className="mt-16 border-t border-ink/20 pt-5 font-mono text-[11px] text-ink/55">© 2026 Tanya Mahajan. Stationed in Chicago, IL.</p>
+      </article>
+    </DossierPage>
   );
 }

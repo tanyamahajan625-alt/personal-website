@@ -8,6 +8,7 @@ import filesAsset from "@/assets/pixel/resume_icon.png.asset.json";
 import laptopAsset from "@/assets/pixel/laptop_icon.png.asset.json";
 import linkedinAsset from "@/assets/pixel/pixel_linkedin.png.asset.json";
 import substackAsset from "@/assets/pixel/pixel_substack.png.asset.json";
+import folderGraphic from "@/assets/pixel/folder-graphic.png";
 import { Button } from "@/components/ui/button";
 import { LINKEDIN_URL, SUBSTACK_URL } from "@/lib/resume-data";
 

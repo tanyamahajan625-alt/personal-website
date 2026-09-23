@@ -73,7 +73,7 @@ function PortfolioDesk() {
             <span className="folder-clip" aria-hidden />
             <span className="relative z-10 flex min-h-[390px] w-full flex-col items-center justify-center px-7 py-16 text-center sm:min-h-[500px] sm:px-14">
               <span className="font-hand text-5xl leading-none font-semibold text-file-red sm:text-7xl">Hi! I&apos;m Tanya!</span>
-              <span className="mt-6 max-w-2xl font-mono text-sm leading-relaxed sm:text-lg">Welcome to my Website, find everything &quot;filed&quot; below :)</span>
+              <span className="mt-6 max-w-2xl font-mono text-sm leading-relaxed sm:text-lg"> Welcome to my Website, find everything &quot;filed&quot; below :)</span>
               <span className="mt-10 border-b border-ink/40 pb-1 font-mono text-xs sm:text-sm">[click on the folder to learn more]</span>
             </span>
           </Button>

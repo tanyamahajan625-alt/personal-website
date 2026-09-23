@@ -21,8 +21,8 @@ const ROLES = [
     metadata: "Chicago, IL | Jun 2025 – Present",
     focus: "Growth Analytics & Attribution",
     stats: [
-      { value: "6 HRS/WK", label: "Saved via Power BI QA Automation" },
-      { value: "3+", label: "Fortune 500 Analytics Workstreams" },
+      { value: "6 HRS/WK", label: "SAVED VIA QA AUTOMATION" },
+      { value: "3+", label: "FORTUNE 500 CLIENT WORKSTREAMS MANAGEMENT" },
     ],
     summary:
       "Architecting SQL/GCP data pipelines and multi-channel attribution models to help enterprise clients measure true incremental marketing ROI.",

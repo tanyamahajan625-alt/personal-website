@@ -71,15 +71,13 @@ function PortfolioDesk() {
     <main className="paper-texture min-h-dvh overflow-hidden font-display text-ink antialiased">
       {folderOpen ? (
         <div className={`folder-overlay ${folderLeaving ? "folder-overlay-leaving" : ""}`}>
-          <Button type="button" variant="ghost" onClick={dismissFolder} className="folder-file h-auto w-[min(82vw,680px)] whitespace-normal p-0 text-ink shadow-none hover:bg-transparent" aria-label="Open Tanya Mahajan's portfolio">
-            <span className="folder-papers" aria-hidden />
-            <span className="folder-tab" aria-hidden />
-            <span className="folder-clip" aria-hidden />
-            <span className="relative z-10 flex min-h-[390px] w-full flex-col items-center justify-center px-7 py-16 text-center sm:min-h-[500px] sm:px-14">
-              <span className="font-hand text-5xl leading-none font-semibold text-file-red sm:text-7xl">Hi! I&apos;m Tanya!</span>
-              <span className="mt-6 max-w-2xl font-mono text-sm leading-relaxed sm:text-lg"> Welcome to my Website, find everything &quot;filed&quot; below :)</span>
-              <span className="mt-10 border-b border-ink/40 pb-1 font-mono text-xs sm:text-sm">[click on the folder to learn more]</span>
-              <span className="mt-8 flex items-center justify-center gap-5 sm:gap-7">
+          <Button type="button" variant="ghost" onClick={dismissFolder} className="folder-file h-auto w-[min(86vw,680px)] whitespace-normal p-0 text-ink shadow-none hover:bg-transparent" aria-label="Open Tanya Mahajan's portfolio">
+            <img src={folderGraphic} alt="Manila file folder" className="folder-graphic-img" />
+            <span className="folder-content relative z-10 flex flex-col items-center justify-center px-7 py-12 text-center sm:px-14 sm:py-16">
+              <span className="font-hand text-4xl leading-none font-semibold text-file-red sm:text-6xl">Hi! I'm Tanya!</span>
+              <span className="mt-5 max-w-2xl font-mono text-sm leading-relaxed sm:text-lg"> Welcome to my Website, find everything "filed" below :)</span>
+              <span className="mt-8 border-b border-ink/40 pb-1 font-mono text-xs sm:text-sm">[click on the folder to learn more]</span>
+              <span className="mt-7 flex items-center justify-center gap-5 sm:gap-7">
                 <a href={LINKEDIN_URL} onClick={(e) => e.stopPropagation()} className="folder-social-link" aria-label="Visit Tanya Mahajan's LinkedIn">
                   <img src={assetUrl(linkedinAsset)} alt="Pixel-art LinkedIn logo" className="folder-social-img" />
                 </a>

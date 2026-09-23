@@ -1,93 +1,56 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageShell, PaperCard } from "@/components/scrapbook";
-import { RESUME_URL } from "@/lib/resume-data";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import avatarAsset from "@/assets/pixel/about_me.png.asset.json";
+import cameraAsset from "@/assets/pixel/icon_pictures.png.asset.json";
+import { DossierPage } from "@/components/dossier-layout";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "about me — tanya mahajan" },
-      {
-        name: "description",
-        content:
-          "Tanya Mahajan is a marketing analytics consultant in Chicago and a UChicago Booth MiM grad who turns messy consumer behavior into decisions brands trust.",
-      },
-      { property: "og:title", content: "about me — tanya mahajan" },
-      {
-        property: "og:description",
-        content:
-          "Marketing analytics in Chicago, Booth MiM, and a lifelong habit of asking why people buy what they buy.",
-      },
-      { property: "og:type", content: "profile" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => ({ meta: [
+    { title: "Personnel File — Tanya Mahajan" },
+    { name: "description", content: "Meet Tanya Mahajan beyond work: her path from Ashoka and UChicago Booth to growth marketing, life in Chicago, writing, family, and photography." },
+    { property: "og:title", content: "Personnel File — Tanya Mahajan" },
+    { property: "og:description", content: "Off-the-clock notes from Tanya Mahajan's personnel file." },
+    { property: "og:type", content: "profile" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: AboutPage,
 });
 
-const OFF_THE_CLOCK = [
-  "hiking",
-  "pickleball",
-  "bollywood movies",
-  "coffee (iced, always)",
-  "dogs",
-  "yoga",
-];
+const assetUrl = (asset: { url: string }) => asset.url;
 
 function AboutPage() {
+  const [photographyOpen, setPhotographyOpen] = useState(false);
   return (
-    <PageShell title="a little about me" crumb="about · chicago, il">
-      <PaperCard tilt={-0.8}>
-        <p className="font-hand text-2xl leading-snug text-pretty sm:text-3xl">
-          I'm a data-minded storyteller who genuinely can't stop asking why people buy what they
-          buy.
-        </p>
-        <div className="mt-5 grid gap-4 leading-relaxed text-pretty text-ink/85">
-          <p>
-            By day I'm a Marketing Consulting Analyst at TransUnion in Chicago, running analytics
-            workstreams for Fortune 500 brands — measuring what campaigns actually moved rather than
-            what they reported.
-          </p>
-          <p>
-            Before that: go-to-market at a pre-seed AI startup, brand management at an Indian D2C
-            personal care company, a Master in Management from UChicago Booth, and an economics and
-            finance degree from Ashoka University, where I founded the Women in Finance Society.
-          </p>
-          <p>
-            The thread running through all of it is consumer curiosity — which is also why I write
-            the Clever Consumer Club on the side.
-          </p>
+    <DossierPage code="SECTION D / APPROVED FOR RELEASE" title="Personnel File: Off-the-Clock Data">
+      <article className="personnel-letter mt-10">
+        <div className="grid gap-10 lg:grid-cols-[1fr_220px]">
+          <div className="space-y-5 text-lg leading-relaxed text-ink/80">
+            <p>My path started with Economics and Finance at Ashoka University, then moved through UChicago Booth&apos;s Master in Management program into growth marketing, product positioning, and consumer psychology.</p>
+            <p>Chicago is the city I associate most with myself now: part classroom, part running route, part never-ending coffee shop ranking. My obsession with why consumers choose what they choose eventually became the Clever Consumer Club, where I write about brands, behavior, and the aspiration economy.</p>
+            <p>Back home in India are my family and Little Snowy, our dog. Off the clock, I reset through yoga, running, pickleball, photography, and the serious business of deciding which Chicago café deserves the next top spot.</p>
+          </div>
+          <div className="flex flex-col items-center justify-center border-t border-dashed border-ink/25 pt-7 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <img src={assetUrl(avatarAsset)} alt="Pixel-art portrait of Tanya" className="w-40 image-pixelated" />
+            <p className="mt-4 text-center font-mono text-[10px] tracking-[0.12em]">SUBJECT: T. MAHAJAN<br />LOCATION: CHICAGO, IL</p>
+          </div>
         </div>
-      </PaperCard>
-
-      <PaperCard tilt={0.7}>
-        <h2 className="font-mono text-xs tracking-[0.18em] text-ink/60 uppercase">off the clock</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {OFF_THE_CLOCK.map((thing) => (
-            <span
-              key={thing}
-              className="rounded-full bg-paper px-3 py-1.5 font-mono text-xs ring-1 ring-ink/15"
-            >
-              {thing}
-            </span>
-          ))}
+        <div className="mt-10 flex flex-col items-start gap-5 border-t border-ink/20 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em]">Approved for external release. Powered by coffee, movement, and consumer psychology.</p>
+          <Button type="button" variant="ghost" onClick={() => setPhotographyOpen(true)} className="h-auto shrink-0 rounded-none p-0 hover:bg-transparent">
+            <img src={assetUrl(cameraAsset)} alt="Open Tanya's photography file" className="w-24 image-pixelated transition-transform hover:scale-110" />
+            <span className="font-mono text-[10px]">[ PHOTOGRAPHY ]</span>
+          </Button>
         </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href={RESUME_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="pshadow inline-flex items-center gap-2 rounded-md bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition-transform duration-200 hover:-translate-y-0.5"
-          >
-            download my resume
-          </a>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-card px-5 py-2.5 text-sm font-semibold ring-1 ring-ink/20 transition-transform duration-200 hover:-translate-y-0.5"
-          >
-            get in touch
-          </Link>
+      </article>
+      {photographyOpen ? (
+        <div className="photo-modal" role="dialog" aria-modal="true" aria-labelledby="photography-title" onClick={() => setPhotographyOpen(false)}>
+          <article className="photo-file" onClick={(event) => event.stopPropagation()}>
+            <div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[10px] tracking-[0.16em] text-file-red">PERSONAL ARCHIVE / CANON</p><h2 id="photography-title" className="mt-2 text-3xl font-semibold">Photography Contact Sheet</h2></div><Button type="button" variant="ghost" size="icon" onClick={() => setPhotographyOpen(false)} aria-label="Close photography file" className="rounded-none font-mono text-xl">×</Button></div>
+            <div className="photo-placeholder mt-8"><img src={assetUrl(cameraAsset)} alt="Pixel-art Canon camera" className="w-32 image-pixelated" /><p className="mt-5 font-hand text-3xl">Personal shots coming soon.</p><p className="mt-2 max-w-md text-center font-mono text-xs leading-relaxed text-ink/60">This contact sheet is ready for the photographs Tanya selects for her archive.</p></div>
+          </article>
         </div>
-      </PaperCard>
-    </PageShell>
+      ) : null}
+    </DossierPage>
   );
 }

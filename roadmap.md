@@ -1,13 +1,15 @@
 # Roadmap
 
-- [x] Build casebook resume site (earlier direction — superseded)
-- [x] Confirm LinkedIn URL
-- [x] Upload resume PDF as downloadable asset
-- [x] Rebuild as single-page retro desktop / office dossier site
-  - [x] Manila folder landing overlay with slide-up dismissal
-  - [x] Pixel-art desktop hero: avatar + 5 floating icons with bracket labels
-  - [x] Sticky nav header with RETURN TO DESK
-  - [x] Sections: experience, projects, memos (+ subscribe form), about, contact footer
-  - [x] Visible "Download Full Resume PDF" button
-  - [x] Update email to tanyamahajan625@gmail.com
-  - [x] Add HYPHEN D2C project
+- [x] Build original resume portfolio and confirm contact links
+- [x] Upload polished resume PDF
+- [x] Build retro folder reveal and pixel-art desktop
+- [x] Convert the scrolling dossier into dedicated pages
+  - [x] Keep `/` as folder reveal → pixel desk
+  - [x] Add shared page header and paper texture
+  - [x] Build Experience page
+  - [x] Build Projects page
+  - [x] Build Substack Memos page
+  - [x] Build Personnel File page with photography viewer
+  - [x] Build Contact page with resume download
+  - [x] Verify desktop and mobile navigation
+- [ ] Add Tanya's personal photography shots when supplied

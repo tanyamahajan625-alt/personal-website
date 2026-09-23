@@ -24,7 +24,7 @@ export function DossierHeader() {
             </Link>
           ))}
         </nav>
-        <Link to="/" search={{}} className="return-to-desk">
+        <Link to="/" search={{ desk: true }} className="return-to-desk">
           [ RETURN TO DESK ↑ ]
         </Link>
       </div>

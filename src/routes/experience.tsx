@@ -154,11 +154,6 @@ function ExperiencePage() {
         })}
       </div>
 
-      <div className="mt-12 border-t border-ink/20 pt-8 text-center">
-        <Button asChild variant="link" className="h-auto font-mono text-xs text-file-red">
-          <a href={RESUME_URL} download="Tanya-Mahajan-Resume.pdf">[ DOWNLOAD_OFFICIAL_RESUME.PDF ]</a>
-        </Button>
-      </div>
     </DossierPage>
   );
 }

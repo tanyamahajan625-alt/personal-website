@@ -1,6 +1,6 @@
 import resumeAsset from "@/assets/tanya-mahajan-resume.pdf.asset.json";
 
-export const EMAIL = "iamtanyamahajan@gmail.com";
+export const EMAIL = "tanyamahajan625@gmail.com";
 export const PHONE_DISPLAY = "+1 (872) 357-1825";
 export const PHONE_TEL = "+18723571825";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/tanya-mahajan-344854218/";

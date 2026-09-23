@@ -52,7 +52,7 @@ export function PageShell({
     <div className="min-h-dvh bg-paper font-display text-ink antialiased">
       <div className="mx-auto max-w-3xl px-5 pt-8 pb-20 sm:px-8">
         <div className="flex items-center justify-between font-mono text-xs uppercase tracking-[0.18em] text-ink/60">
-          <Link to="/" search={{ desk: true }} className="transition-colors hover:text-ink">
+          <Link to="/" search={{}} className="transition-colors hover:text-ink">
             ← back to the desk
           </Link>
           <span className="hidden sm:inline">{crumb}</span>

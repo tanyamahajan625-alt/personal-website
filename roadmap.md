@@ -1,7 +1,13 @@
 # Roadmap
 
-- [x] Build casebook resume site (soft neobrutalist direction, real resume content)
-- [x] Fix TS error in index.tsx (TAG_ROTATION indexing)
-- [x] Verify build + screenshot preview (build OK, accordions + case studies work, no page errors)
-- [ ] Review Instagram inspiration — BLOCKED: Instagram requires login; need the woman's actual website URL from the user
-- [ ] Confirm LinkedIn URL with user (guessed linkedin.com/in/tanyamahajan)
+- [x] Build casebook resume site (earlier direction — superseded)
+- [x] Confirm LinkedIn URL
+- [x] Upload resume PDF as downloadable asset
+- [ ] Rebuild as single-page retro desktop / office dossier site
+  - [ ] Manila folder landing overlay with slide-up dismissal
+  - [ ] Pixel-art desktop hero: avatar + 5 floating icons with bracket labels
+  - [ ] Sticky nav header with RETURN TO DESK
+  - [ ] Sections: experience, projects, memos (+ subscribe form), about, contact footer
+  - [ ] Visible "Download Full Resume PDF" button
+  - [ ] Update email to tanyamahajan625@gmail.com
+  - [ ] Add HYPHEN D2C project

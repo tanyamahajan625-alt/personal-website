@@ -67,7 +67,7 @@ function PortfolioDesk() {
     <main className="paper-texture min-h-dvh overflow-hidden font-display text-ink antialiased">
       {folderOpen ? (
         <div className={`folder-overlay ${folderLeaving ? "folder-overlay-leaving" : ""}`}>
-          <Button type="button" variant="ghost" onClick={dismissFolder} className="folder-file h-auto w-[min(88vw,900px)] whitespace-normal p-0 text-ink shadow-none hover:bg-transparent" aria-label="Open Tanya Mahajan's portfolio">
+          <Button type="button" variant="ghost" onClick={dismissFolder} className="folder-file h-auto w-[min(82vw,680px)] whitespace-normal p-0 text-ink shadow-none hover:bg-transparent" aria-label="Open Tanya Mahajan's portfolio">
             <span className="folder-papers" aria-hidden />
             <span className="folder-tab" aria-hidden />
             <span className="folder-clip" aria-hidden />

@@ -18,3 +18,4 @@
 - [ ] Add Tanya's personal photography shots when supplied
 - [x] Removed backgrounds from LinkedIn + Substack logo buttons
 - [x] Enhance Work History with role filters, PMM-focused copy, expandable breakdowns, and resume download
+- [x] Redesign Projects as an interactive case-file system with HYPHEN campaign media

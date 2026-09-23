@@ -16,3 +16,4 @@
   - [x] Build Contact page with resume download
   - [x] Verify desktop and mobile navigation
 - [ ] Add Tanya's personal photography shots when supplied
+- [x] Removed backgrounds from LinkedIn + Substack logo buttons

@@ -6,7 +6,10 @@ import booksAsset from "@/assets/pixel/icon_research-2.png.asset.json";
 import notepadAsset from "@/assets/pixel/portfolio_icon.png.asset.json";
 import filesAsset from "@/assets/pixel/resume_icon.png.asset.json";
 import laptopAsset from "@/assets/pixel/laptop_icon.png.asset.json";
+import linkedinAsset from "@/assets/pixel/pixel_linkedin.png.asset.json";
+import substackAsset from "@/assets/pixel/pixel_substack.jpg.asset.json";
 import { Button } from "@/components/ui/button";
+import { LINKEDIN_URL, SUBSTACK_URL } from "@/lib/resume-data";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): { desk?: boolean } =>

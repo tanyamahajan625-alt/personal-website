@@ -309,10 +309,22 @@
 .folder-file {
   position: relative;
   isolation: isolate;
-  border: 1px solid color-mix(in oklab, var(--color-ink) 20%, transparent);
+  border: none;
   border-radius: 0.4rem;
-  background: var(--color-manila);
-  box-shadow: 0 28px 70px -22px oklch(0.264 0.013 41.6 / 0.42);
+  background: transparent;
+}
+
+.folder-graphic-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: auto;
+  filter: drop-shadow(0 26px 45px oklch(0.264 0.013 41.6 / 0.42));
+}
+
+.folder-content {
+  position: absolute;
+  inset: 0;
 }
 
 .folder-file::before {

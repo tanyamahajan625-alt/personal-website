@@ -359,6 +359,32 @@
   transform: rotate(-5deg);
 }
 
+.folder-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.75rem, 7vw, 3.5rem);
+  height: clamp(2.75rem, 7vw, 3.5rem);
+  border: 1px solid color-mix(in oklab, var(--color-ink) 25%, transparent);
+  background: var(--color-cream);
+  box-shadow: 3px 3px 0 color-mix(in oklab, var(--color-ink) 14%, transparent);
+  transition: transform 160ms steps(2), box-shadow 160ms ease;
+}
+
+.folder-social-link:hover,
+.folder-social-link:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 color-mix(in oklab, var(--color-ink) 22%, transparent);
+  outline: none;
+}
+
+.folder-social-img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
 .desktop-grid {
   position: relative;
 }

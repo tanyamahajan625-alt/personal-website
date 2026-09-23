@@ -10,7 +10,7 @@ import linkedinAsset from "@/assets/pixel/pixel_linkedin.png.asset.json";
 import substackAsset from "@/assets/pixel/pixel_substack.png.asset.json";
 import folderGraphic from "@/assets/pixel/folder-graphic.png";
 import { Button } from "@/components/ui/button";
-import { LINKEDIN_URL, SUBSTACK_URL } from "@/lib/resume-data";
+import { LINKEDIN_URL, RESUME_URL, SUBSTACK_URL } from "@/lib/resume-data";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): { desk?: boolean } =>

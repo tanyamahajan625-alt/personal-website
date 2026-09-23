@@ -20,7 +20,7 @@ const PROJECTS = [
     subtitle: "Intimacy tech concept & launch",
     category: "Product Marketing & GTM",
     title: "Durex GTM & Intimacy Tech Strategy",
-    institution: "Reckitt Benckiser · UChicago Booth",
+    institution: "Reckitt Benckiser · University of Chicago Booth School of Business",
     metrics: [
       { value: "$20M+", label: "TAM Identified" },
       { value: "150+", label: "Gen Z Interviews" },

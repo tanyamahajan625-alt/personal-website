@@ -352,9 +352,15 @@
   transition: transform 180ms steps(2);
 }
 
-.pixel-art img {
+.pixel-art > img {
   max-height: 15rem;
   width: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.pixel-art span img {
+  max-height: 11rem;
   object-fit: contain;
   image-rendering: pixelated;
 }

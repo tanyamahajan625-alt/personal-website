@@ -890,7 +890,7 @@
 @media (max-width: 639px) {
   .folder-file { width: min(94vw, 30rem); }
   .folder-content {
-    inset: 18% 4% 5% 26%;
+    inset: 24% 10% 2% 18%;
     min-width: 0;
     padding: 0;
     gap: 0.5rem;

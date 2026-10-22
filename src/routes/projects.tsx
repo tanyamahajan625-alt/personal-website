@@ -221,6 +221,17 @@ function ProjectsPage() {
           </div>
         </div>
       ) : null}
+
+      {blueprintOpen ? (
+        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label="HYPHEN partnership blueprint" onClick={() => setBlueprintOpen(false)}>
+          <div className="project-lightbox-file project-blueprint-file" onClick={(event) => event.stopPropagation()}>
+            <Button type="button" variant="ghost" size="icon" className="project-lightbox-close" aria-label="Close blueprint" onClick={() => setBlueprintOpen(false)}>
+              <X aria-hidden className="size-5" />
+            </Button>
+            <PartnershipBlueprint />
+          </div>
+        </div>
+      ) : null}
     </DossierPage>
   );
 }

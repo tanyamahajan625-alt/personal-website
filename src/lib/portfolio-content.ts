@@ -28,17 +28,37 @@ export const PROJECT_CASES = [
 export const MEMOS = [
   {
     number: "MEMO 001",
-    title: "Why we fill our carts the way we do",
-    summary: "Consumer psychology, decoded through the choices hiding in an ordinary shopping cart.",
+    date: "Jul 10, 2026",
+    concept: "Brand Prestige",
+    title: "Luxury Brands Hate Discounts — So Why Do They Build Outlet Malls?",
+    subtitle: "Outlet malls sell much more than just discounts.",
+    summary:
+      "The world's most expensive brands spend years convincing us they're worth thousands. Then they open outlet malls. A look at how luxury protects its prestige while still capturing the aspirational shopper.",
+    url: "https://cleverconsumerclub.substack.com/p/luxury-brands-hate-discounts-so-why",
+    image:
+      "https://substackcdn.com/image/fetch/w_800,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30e07375-d7c6-479d-9488-fe04c4111213_620x349.jpeg",
   },
   {
     number: "MEMO 002",
-    title: "Beauty, fashion & the aspiration economy",
-    summary: "Field notes on taste, identity, and the commercial power of who we hope to become.",
+    date: "Jun 05, 2026",
+    concept: "The Zero-Price Effect",
+    title: "Your Mind Does Cartwheels When It Hears “Free”",
+    subtitle: "Why we'd rather buy 3x the value of our cart than pay $5.99 for shipping.",
+    summary:
+      "A $42 top, $5.99 shipping, and a sudden hunt for $18 more to unlock “free.” Unpacking why zero feels irrationally better than any small price.",
+    url: "https://cleverconsumerclub.substack.com/p/your-mind-does-cartwheels-when-it",
+    image:
+      "https://substackcdn.com/image/fetch/w_800,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F832aa925-192a-4e11-ad9b-c764b52809d8_956x592.png",
   },
   {
     number: "MEMO 003",
-    title: "The stories brands tell",
-    summary: "A marketer's look at positioning, belief, and why some brand narratives stay with us.",
+    date: "Apr 16, 2026",
+    concept: "The Decoy Effect",
+    title: "Why the Middle Option Wins (Almost Every Time)",
+    subtitle: "The psychology behind instinctively choosing the mid-priced alternative.",
+    summary:
+      "Small popcorn feels stingy, large feels excessive — so you pick medium. Coffee, subscriptions, iPhones: why brands almost always show us three options, and how that third option steers us.",
+    url: "https://cleverconsumerclub.substack.com/p/why-the-middle-option-wins-almost",
+    image: null as string | null,
   },
 ];

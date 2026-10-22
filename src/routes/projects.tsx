@@ -171,14 +171,27 @@ function ProjectsPage() {
               <div className="mt-6 flex flex-wrap gap-2">
                 {activeProject.tags.map((tag) => <span key={tag} className="file-chip">[ {tag} ]</span>)}
               </div>
+              {activeProject.pointers.length ? (
+                <div className="project-pointers mt-7">
+                  <p className="project-label">What I did</p>
+                  <ul className="mt-3 grid gap-2.5">
+                    {activeProject.pointers.map((item) => (
+                      <li key={item} className="project-pointer">
+                        <span aria-hidden className="project-pointer-mark">▸</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <Button
                 type="button"
                 variant="outline"
                 className="project-action mt-7"
-                aria-expanded={artifactOpen}
-                onClick={() => setArtifactOpen((current) => !current)}
+                aria-expanded={isHyphen ? blueprintOpen : artifactOpen}
+                onClick={() => (isHyphen ? setBlueprintOpen(true) : setArtifactOpen((current) => !current))}
               >
-                [ {artifactOpen ? "Close File" : activeProject.action} {artifactOpen ? "×" : "->"} ]
+                [ {actionLabel} {isHyphen ? "->" : artifactOpen ? "×" : "->"} ]
               </Button>
               {activeProject.download ? (
                 <a

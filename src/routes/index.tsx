@@ -74,10 +74,10 @@ function PortfolioDesk() {
           <Button type="button" variant="ghost" onClick={dismissFolder} className="folder-file h-auto w-[min(86vw,680px)] whitespace-normal p-0 text-ink shadow-none hover:bg-transparent" aria-label="Open Tanya Mahajan's portfolio">
             <img src={folderGraphic} alt="Manila file folder" className="folder-graphic-img" />
             <span className="folder-content relative z-10 flex flex-col items-center justify-center px-7 py-12 text-center sm:px-14 sm:py-16">
-              <span className="font-hand text-4xl leading-none font-semibold text-file-red sm:text-6xl">Hi! I'm Tanya!</span>
-              <span className="mt-5 max-w-[22rem] font-mono text-sm leading-relaxed sm:max-w-sm sm:text-lg"> Welcome to my Website, find everything "filed" below :)</span>
-              <span className="mt-8 border-b border-ink/30 pb-1 font-mono text-[0.65rem] sm:text-xs text-ink">[click on the folder to learn more]</span>
-              <span className="mt-9 flex items-center justify-center gap-5 sm:gap-7">
+              <span className="folder-greeting font-hand text-4xl leading-none font-semibold text-file-red sm:text-6xl">Hi! I'm Tanya!</span>
+              <span className="folder-welcome mt-5 max-w-[22rem] font-mono text-sm leading-relaxed sm:max-w-sm sm:text-lg"> Welcome to my Website, find everything "filed" below :)</span>
+              <span className="folder-prompt mt-8 border-b border-ink/30 pb-1 font-mono text-[0.65rem] sm:text-xs text-ink">[click on the folder to learn more]</span>
+              <span className="folder-socials mt-9 flex items-center justify-center gap-5 sm:gap-7">
                 <a href={LINKEDIN_URL} onClick={(e) => e.stopPropagation()} className="folder-social-link" aria-label="Visit Tanya Mahajan's LinkedIn">
                   <img src={assetUrl(linkedinAsset)} alt="Pixel-art LinkedIn logo" className="folder-social-img" />
                 </a>
@@ -85,7 +85,7 @@ function PortfolioDesk() {
                   <img src={assetUrl(substackAsset)} alt="Pixel-art Substack logo" className="folder-social-img" />
                 </a>
               </span>
-              <Button asChild variant="default" size="sm" className="mt-7 h-auto rounded-none border border-ink/15 bg-file-red px-4 py-2 font-mono text-[0.6rem] font-semibold tracking-wide text-cream shadow-[3px_3px_0_0_color-mix(in_oklab,var(--color-ink)_30%,transparent)] transition-transform hover:bg-ink hover:text-cream sm:text-[0.7rem]" >
+              <Button asChild variant="default" size="sm" className="folder-resume-button mt-7 h-auto rounded-none border border-ink/15 bg-file-red px-4 py-2 font-mono text-[0.6rem] font-semibold tracking-wide text-cream shadow-[3px_3px_0_0_color-mix(in_oklab,var(--color-ink)_30%,transparent)] transition-transform hover:bg-ink hover:text-cream sm:text-[0.7rem]" >
                 <a href={RESUME_URL} onClick={(e) => e.stopPropagation()} download aria-label="Download Tanya Mahajan's resume PDF">[ Download Resume.pdf ↓ ]</a>
               </Button>
             </span>

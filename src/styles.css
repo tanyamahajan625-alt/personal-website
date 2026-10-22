@@ -888,6 +888,36 @@
 }
 
 @media (max-width: 639px) {
+  .folder-file { width: min(94vw, 30rem); }
+  .folder-content {
+    inset: 18% 4% 5% 26%;
+    min-width: 0;
+    padding: 0;
+    gap: 0.5rem;
+    transform: none;
+  }
+  .folder-greeting { font-size: 1.75rem; }
+  .folder-welcome {
+    margin-top: 0;
+    max-width: 13rem;
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+  .folder-prompt {
+    margin-top: 0;
+    font-size: 0.5rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .folder-socials { margin-top: 0; gap: 1rem; }
+  .folder-social-link { width: 2rem; height: 2rem; }
+  .folder-resume-button {
+    margin-top: 0;
+    max-width: 100%;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.5rem;
+    letter-spacing: 0;
+  }
   .desktop-grid { min-height: 680px; }
   .desk-memos { left: 2%; top: 5%; }
   .desk-about { left: 37%; top: 2%; width: clamp(8rem, 24vw, 12rem); }

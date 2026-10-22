@@ -109,6 +109,9 @@ function ProjectsPage() {
 
   if (!activeProject) return null;
 
+  const isHyphen = activeProject.id === "hyphen";
+  const actionLabel = isHyphen ? "View Partnership Blueprint" : artifactOpen ? "Close File" : activeProject.action;
+
   function selectProject(id: ProjectId) {
     setActiveId(id);
     setArtifactOpen(false);

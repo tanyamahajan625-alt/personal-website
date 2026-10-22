@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { DossierPage } from "@/components/dossier-layout";
 import { Button } from "@/components/ui/button";
 import campaignImage from "@/assets/projects/hyphen-cobranding-campaign.png.asset.json";
-import creativeTestingImage from "@/assets/projects/creative-testing-performance.jpg.asset.json";
-import retailActivationImage from "@/assets/projects/omnichannel-retail-activation.jpg.asset.json";
 import tennisCampaignVideo from "@/assets/projects/dewy-prep-tennis-court.mp4.asset.json";
 import campaignRecordingVideo from "@/assets/projects/hyphen-campaign-screen-recording.mov.asset.json";
 import telcoxAnalysis from "@/assets/projects/tanya-mahajan-final-submission.Rmd.asset.json";
@@ -30,6 +28,7 @@ const PROJECTS = [
     ],
     brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
     tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
+    pointers: [] as string[],
     action: "Open Full Strategy Deck",
     download: {
       href: durexStrategyDeck.url,
@@ -53,6 +52,7 @@ const PROJECTS = [
     ],
     brief: "Engineered a profit-maximizing retargeting model in R using CATE causal machine learning to prevent ad spend cannibalization and outperform blanket targeting.",
     tags: ["Causal Inference", "R / Econometrics", "A/B Testing"],
+    pointers: [] as string[],
     action: "View Causal Analysis & Code",
     download: {
       href: telcoxAnalysis.url,
@@ -75,6 +75,13 @@ const PROJECTS = [
     ],
     brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
     tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
+    pointers: [
+      "Mapped the 5-brand D2C co-branding ecosystem and built the partnership-fit framework used to prioritize collaborations.",
+      "Wrote HYPHEN's 0-to-1 launch story and positioning narrative for the D2C debut.",
+      "Built the partnership pitch assets and co-branding concepts taken to brand stakeholders.",
+      "Ran creative A/B testing across launch campaigns, lifting CTR by 18%.",
+      "Connected activation touchpoints — reels, retail collateral, omnichannel rollout — back to $11M+ subsidiary revenue impact.",
+    ],
     action: "View Partnership Blueprint",
     download: null,
   },
@@ -97,22 +104,29 @@ function ProjectsPage() {
   const [galleryMode, setGalleryMode] = useState<GalleryMode>("visual");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [artifactOpen, setArtifactOpen] = useState(false);
+  const [blueprintOpen, setBlueprintOpen] = useState(false);
   const activeProject = PROJECTS.find((project) => project.id === activeId) ?? PROJECTS[0];
 
   useEffect(() => {
-    if (!lightbox) return;
+    if (!lightbox && !blueprintOpen) return;
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setLightbox(null);
+      if (event.key !== "Escape") return;
+      setLightbox(null);
+      setBlueprintOpen(false);
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
-  }, [lightbox]);
+  }, [lightbox, blueprintOpen]);
 
   if (!activeProject) return null;
+
+  const isHyphen = activeProject.id === "hyphen";
+  const actionLabel = isHyphen ? "View Partnership Blueprint" : artifactOpen ? "Close File" : activeProject.action;
 
   function selectProject(id: ProjectId) {
     setActiveId(id);
     setArtifactOpen(false);
+    setBlueprintOpen(false);
   }
 
   return (
@@ -172,14 +186,27 @@ function ProjectsPage() {
               <div className="mt-6 flex flex-wrap gap-2">
                 {activeProject.tags.map((tag) => <span key={tag} className="file-chip">[ {tag} ]</span>)}
               </div>
+              {activeProject.pointers.length ? (
+                <div className="project-pointers mt-7">
+                  <p className="project-label">What I did</p>
+                  <ul className="mt-3 grid gap-2.5">
+                    {activeProject.pointers.map((item) => (
+                      <li key={item} className="project-pointer">
+                        <span aria-hidden className="project-pointer-mark">▸</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <Button
                 type="button"
                 variant="outline"
                 className="project-action mt-7"
-                aria-expanded={artifactOpen}
-                onClick={() => setArtifactOpen((current) => !current)}
+                aria-expanded={isHyphen ? blueprintOpen : artifactOpen}
+                onClick={() => (isHyphen ? setBlueprintOpen(true) : setArtifactOpen((current) => !current))}
               >
-                [ {artifactOpen ? "Close File" : activeProject.action} {artifactOpen ? "×" : "->"} ]
+                [ {actionLabel} {isHyphen ? "->" : artifactOpen ? "×" : "->"} ]
               </Button>
               {activeProject.download ? (
                 <a
@@ -222,6 +249,17 @@ function ProjectsPage() {
           </div>
         </div>
       ) : null}
+
+      {blueprintOpen ? (
+        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label="HYPHEN partnership blueprint" onClick={() => setBlueprintOpen(false)}>
+          <div className="project-lightbox-file project-blueprint-file" onClick={(event) => event.stopPropagation()}>
+            <Button type="button" variant="ghost" size="icon" className="project-lightbox-close" aria-label="Close blueprint" onClick={() => setBlueprintOpen(false)}>
+              <X aria-hidden className="size-5" />
+            </Button>
+            <PartnershipBlueprint />
+          </div>
+        </div>
+      ) : null}
     </DossierPage>
   );
 }
@@ -259,14 +297,8 @@ function ProjectArtifact({ id, expanded }: { id: ProjectId; expanded: boolean })
 }
 
 function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode; onModeChange: (mode: GalleryMode) => void; onOpenImage: (src: string, alt: string) => void }) {
-  const imageSlots: [
-    { src: string; alt: string; tag: string; text: string },
-    { src: string; alt: string; tag: string; text: string },
-    { src: string; alt: string; tag: string; text: string },
-  ] = [
+  const imageSlots = [
     { src: campaignImage.url, alt: "mCaffeine campaign and co-branding profile", tag: "01 // D2C Partnership Architecture & Co-Branding Visuals", text: "Cross-brand positioning across mCaffeine's ecosystem and Hyphen's D2C launch assets." },
-    { src: creativeTestingImage.url, alt: "HYPHEN creative campaign frame", tag: "02 // High-Converting Ad Creatives & Creative Testing", text: "A/B creative variations supporting performance-led launch campaigns." },
-    { src: retailActivationImage.url, alt: "HYPHEN mobile campaign and retail activation", tag: "04 // Retail Touchpoints & Partnership Growth Blueprint", text: "Mobile-first campaign touchpoints connecting storytelling to omnichannel activation." },
   ];
 
   return (
@@ -284,9 +316,8 @@ function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode;
 
       {mode === "visual" ? (
         <div className="campaign-media-grid mt-6">
-          {imageSlots.slice(0, 2).map((slot) => <ImageArtifact key={slot.tag} {...slot} onOpen={onOpenImage} />)}
+          {imageSlots.map((slot) => <ImageArtifact key={slot.tag} {...slot} onOpen={onOpenImage} />)}
           <VideoArtifact src={tennisCampaignVideo.url} tag="03 // Digital Launch Activation Video / Campaign Teaser" />
-          <ImageArtifact {...imageSlots[2]} onOpen={onOpenImage} />
         </div>
       ) : (
         <div className="campaign-video-grid mt-6">
@@ -332,5 +363,61 @@ function VideoArtifact({ src, tag }: { src: string; tag: string }) {
       </div>
       <figcaption><strong>{tag}</strong><span>Campaign motion, pacing, and mobile-first creative execution.</span></figcaption>
     </figure>
+  );
+}
+
+function PartnershipBlueprint() {
+  const stages = [
+    { n: "01", title: "Partnership Audit", did: ["Mapped the D2C brand ecosystem across the mCaffeine portfolio", "Scored each brand on audience overlap and commercial upside"], output: "Brand-fit shortlist" },
+    { n: "02", title: "Ecosystem Architecture", did: ["Designed the 5-brand co-branding structure and value exchange", "Defined offer pairings, partner roles, and rollout sequencing"], output: "Partnership framework" },
+    { n: "03", title: "Positioning & Story", did: ["Wrote the HYPHEN 0-to-1 launch narrative", "Built messaging for the D2C debut and every partner touchpoint"], output: "Launch story + pitch" },
+    { n: "04", title: "Activation", did: ["Ran creative A/B testing across launch campaigns (+18% CTR)", "Produced reels, retail collateral, and omnichannel assets"], output: "Campaign kit" },
+    { n: "05", title: "Revenue Linkage", did: ["Tracked partnership activity back to subsidiary P&L", "Reported $11M+ revenue impact to commercial leadership"], output: "Impact report" },
+  ];
+
+  return (
+    <div className="blueprint-sheet">
+      <div className="blueprint-head">
+        <div>
+          <p className="project-label">Exhibit A / Partnership Architecture</p>
+          <h3 className="blueprint-title">HYPHEN // Partnership Blueprint</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink/70">
+            The multi-brand D2C co-branding system I built end to end — from ecosystem audit through to commercial revenue.
+          </p>
+        </div>
+        <span className="project-category-stamp project-category-stamp-large">[ DRAFT 01 ]</span>
+      </div>
+
+      <div className="blueprint-impact">
+        {[
+          { v: "5", l: "D2C Brands" },
+          { v: "$11M+", l: "Revenue Impact" },
+          { v: "+18%", l: "Creative CTR Lift" },
+          { v: "0→1", l: "Brand Launch" },
+        ].map((item) => (
+          <div key={item.l} className="blueprint-impact-cell"><strong>{item.v}</strong><span>{item.l}</span></div>
+        ))}
+      </div>
+
+      <div className="blueprint-stages">
+        {stages.map((stage) => (
+          <article key={stage.n} className="blueprint-stage">
+            <span className="blueprint-stage-number">{stage.n}</span>
+            <h4>{stage.title}</h4>
+            <ul>{stage.did.map((line) => <li key={line}>{line}</li>)}</ul>
+            <span className="blueprint-deliverable">[ {stage.output} ]</span>
+          </article>
+        ))}
+      </div>
+
+      <div className="blueprint-flow" aria-hidden>
+        <span>AUDIT</span><i>→</i><span>ARCHITECT</span><i>→</i><span>POSITION</span><i>→</i><span>ACTIVATE</span><i>→</i><span>MEASURE</span>
+      </div>
+
+      <div className="blueprint-foot">
+        <span>PREPARED BY TANYA MAHAJAN</span>
+        <span>mCAFFEINE ECOSYSTEM / COMMERCIAL GROWTH</span>
+      </div>
+    </div>
   );
 }

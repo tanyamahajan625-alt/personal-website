@@ -30,6 +30,7 @@ const PROJECTS = [
     brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
     tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
     action: "Open Full Strategy Deck",
+    download: null,
   },
   {
     id: "telcox" as const,
@@ -69,6 +70,7 @@ const PROJECTS = [
     brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
     tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
     action: "View Partnership Blueprint",
+    download: null,
   },
 ];
 

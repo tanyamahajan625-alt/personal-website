@@ -276,9 +276,8 @@ function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode;
 
       {mode === "visual" ? (
         <div className="campaign-media-grid mt-6">
-          {imageSlots.slice(0, 2).map((slot) => <ImageArtifact key={slot.tag} {...slot} onOpen={onOpenImage} />)}
+          {imageSlots.map((slot) => <ImageArtifact key={slot.tag} {...slot} onOpen={onOpenImage} />)}
           <VideoArtifact src={tennisCampaignVideo.url} tag="03 // Digital Launch Activation Video / Campaign Teaser" />
-          <ImageArtifact {...imageSlots[2]} onOpen={onOpenImage} />
         </div>
       ) : (
         <div className="campaign-video-grid mt-6">

@@ -21,11 +21,27 @@ function MemosPage() {
     <DossierPage code="SECTION C / CLEVER CONSUMER CLUB" title="Out of Office Memos & Field Notes" intro="Thoughts on growth marketing, product positioning, consumer psychology, and data-driven strategy—fresh off the typewriter.">
       <div className="mt-10 grid gap-5 md:grid-cols-3">
         {MEMOS.map((memo) => (
-          <a key={memo.number} href={SUBSTACK_URL} target="_blank" rel="noreferrer" className="dossier-card group block transition-transform duration-200 hover:-translate-y-1">
-            <p className="font-mono text-[10px] tracking-[0.14em] text-file-red">{memo.number}</p>
-            <h2 className="mt-5 text-xl font-semibold group-hover:underline">{memo.title}</h2>
-            <p className="mt-4 text-sm leading-relaxed text-ink/70">{memo.summary}</p>
-            <span className="mt-8 inline-block font-mono text-xs">[ READ ON SUBSTACK → ]</span>
+          <a key={memo.number} href={memo.url} target="_blank" rel="noreferrer" className="dossier-card group flex flex-col transition-transform duration-200 hover:-translate-y-1">
+            <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.14em]">
+              <span className="text-file-red">{memo.number}</span>
+              <span className="text-ink/50">{memo.date}</span>
+            </div>
+            <div className="mt-4 aspect-[16/9] overflow-hidden border border-ink/15 bg-cream/60">
+              {memo.image ? (
+                <img src={memo.image} alt="" loading="lazy" className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full items-center justify-center gap-3 font-mono text-xs text-ink/70">
+                  <span className="border border-ink/30 px-3 py-2">S</span>
+                  <span className="border-2 border-file-red px-4 py-3 text-file-red">M ✓</span>
+                  <span className="border border-ink/30 px-3 py-2">L</span>
+                </div>
+              )}
+            </div>
+            <p className="mt-4 inline-block self-start border border-ink/25 px-2 py-0.5 font-mono text-[10px] tracking-[0.12em] uppercase text-ink/70">{memo.concept}</p>
+            <h2 className="mt-3 text-xl leading-snug font-semibold group-hover:underline">{memo.title}</h2>
+            <p className="mt-2 text-sm italic text-ink/60">{memo.subtitle}</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink/70">{memo.summary}</p>
+            <span className="mt-auto pt-6 font-mono text-xs">[ READ THE FULL MEMO → ]</span>
           </a>
         ))}
       </div>

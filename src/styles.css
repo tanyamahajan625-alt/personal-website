@@ -990,3 +990,31 @@
   padding: 1rem;
   text-align: center;
 }
+
+/* Rotating photo reel inside the camera display */
+.camera-shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+
+.camera-shot-active {
+  opacity: 1;
+}
+
+.camera-frame-counter {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.35rem;
+  z-index: 2;
+  background: color-mix(in oklab, var(--color-ink) 78%, transparent);
+  color: var(--color-paper);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  padding: 0.12rem 0.4rem;
+  border-radius: 2px;
+}

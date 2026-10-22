@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import cameraAsset from "@/assets/pixel/camera-silhouette.png.asset.json";
+import shotGopr8459 from "@/assets/photography/GOPR8459.jpg.asset.json";
+import shotImg3652 from "@/assets/photography/IMG_3652.jpg.asset.json";
+import shotImg3662 from "@/assets/photography/IMG_3662.jpg.asset.json";
+import shotImg4562 from "@/assets/photography/IMG_4562.jpg.asset.json";
+import shotImg5088 from "@/assets/photography/IMG_5088.jpg.asset.json";
+import shotImg5505 from "@/assets/photography/IMG_5505.jpg.asset.json";
+import shotImg5635 from "@/assets/photography/IMG_5635.jpg.asset.json";
 import { DossierPage } from "@/components/dossier-layout";
+
+const SHOTS = [
+  { src: shotGopr8459, alt: "Kayakers paddling beneath a sea-cave rock arch along the coast" },
+  { src: shotImg3652, alt: "Flamingos preening beside a zoo pond under leafy trees" },
+  { src: shotImg3662, alt: "Swans resting on the bank of a quiet green pond" },
+  { src: shotImg4562, alt: "Barcelona's city lights from a rooftop pool at night" },
+  { src: shotImg5088, alt: "A shaggy black dog resting on a cobblestone street" },
+  { src: shotImg5505, alt: "A Portuguese flag waving from the bow of a boat at sunset" },
+  { src: shotImg5635, alt: "The Chicago skyline glowing at sunset from a rooftop lounge" },
+] as const;
+
+const ROTATE_MS = 3200;
 
 export const Route = createFileRoute("/photography")({
   head: () => ({ meta: [
@@ -15,20 +35,35 @@ export const Route = createFileRoute("/photography")({
 });
 
 function PhotographyPage() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setIndex((i) => (i + 1) % SHOTS.length), ROTATE_MS);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <DossierPage code="SECTION E / PERSONAL ARCHIVE" title="Photography: Visual Field Notes" intro="A contact sheet for the places, people, and small details I notice along the way.">
       <article className="photo-file mt-10 mx-auto">
         <div className="camera-viewfinder">
-          <img src={cameraAsset.url} alt="Pink point-and-shoot camera, back view with blank display" className="camera-body image-pixelated" />
-          {/* The camera display — rotating photo series will live here */}
-          <div className="camera-screen" aria-label="Camera display">
-            <div className="camera-screen-empty">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/40">no film loaded yet</p>
-              <p className="mt-2 font-hand text-2xl text-ink/50">Shots coming soon</p>
-            </div>
+          <img src={cameraAsset.url} alt="Pink point-and-shoot camera, back view showing the display" className="camera-body image-pixelated" />
+          {/* The camera display — a rotating reel of Tanya's shots */}
+          <div className="camera-screen" aria-label="Camera display showing a rotating photo reel">
+            {SHOTS.map((shot, i) => (
+              <img
+                key={shot.src.url}
+                src={shot.src.url}
+                alt={shot.alt}
+                className={`camera-shot${i === index ? " camera-shot-active" : ""}`}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            ))}
+            <span className="camera-frame-counter font-mono" aria-hidden>
+              {String(index + 1).padStart(2, "0")}/{String(SHOTS.length).padStart(2, "0")}
+            </span>
           </div>
         </div>
-        <p className="mt-6 text-center font-mono text-xs text-ink/60">This contact sheet is ready for the photographs Tanya selects for her archive.</p>
+        <p className="mt-6 text-center font-mono text-xs text-ink/60">Fresh from the film roll — shots rotate on their own, straight out of the camera.</p>
       </article>
     </DossierPage>
   );

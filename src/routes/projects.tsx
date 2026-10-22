@@ -100,7 +100,7 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
-  const [activeId, setActiveId] = useState<ProjectId>("durex");
+  const [activeId, setActiveId] = useState<ProjectId>("hyphen");
   const [galleryMode, setGalleryMode] = useState<GalleryMode>("visual");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [artifactOpen, setArtifactOpen] = useState(false);

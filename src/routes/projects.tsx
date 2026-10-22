@@ -8,6 +8,7 @@ import creativeTestingImage from "@/assets/projects/creative-testing-performance
 import retailActivationImage from "@/assets/projects/omnichannel-retail-activation.jpg.asset.json";
 import tennisCampaignVideo from "@/assets/projects/dewy-prep-tennis-court.mp4.asset.json";
 import campaignRecordingVideo from "@/assets/projects/hyphen-campaign-screen-recording.mov.asset.json";
+import telcoxAnalysis from "@/assets/projects/tanya-mahajan-final-submission.Rmd.asset.json";
 
 type ProjectId = "durex" | "telcox" | "hyphen";
 type GalleryMode = "visual" | "video";
@@ -46,6 +47,12 @@ const PROJECTS = [
     brief: "Engineered a profit-maximizing retargeting model in R using CATE causal machine learning to prevent ad spend cannibalization and outperform blanket targeting.",
     tags: ["Causal Inference", "R / Econometrics", "A/B Testing"],
     action: "View Causal Analysis & Code",
+    download: {
+      href: telcoxAnalysis.url,
+      filename: "Tanya_Mahajan_Final_Submission.Rmd",
+      label: "Analysis source & write-up",
+      meta: "R Markdown · 18 KB · CATE model, A/B test, targeting policy",
+    },
   },
   {
     id: "hyphen" as const,

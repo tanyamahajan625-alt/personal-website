@@ -59,6 +59,7 @@ export const MEMOS = [
     summary:
       "Small popcorn feels stingy, large feels excessive — so you pick medium. Coffee, subscriptions, iPhones: why brands almost always show us three options, and how that third option steers us.",
     url: "https://cleverconsumerclub.substack.com/p/why-the-middle-option-wins-almost",
-    image: null as string | null,
+    image:
+      "https://substackcdn.com/image/fetch/w_800,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd771ea6f-209b-4604-82fa-41542d49aea8_2054x1402.png" as string | null,
   },
 ];

@@ -955,7 +955,7 @@
   .project-download-cta { width: 100%; text-align: center; }
 }
 
-// ============= Photography camera viewfinder =============
+/* ============= Photography camera viewfinder ============= */
 .camera-viewfinder {
   position: relative;
   width: min(100%, 44rem);
@@ -969,7 +969,7 @@
   filter: drop-shadow(8px 8px 0 color-mix(in oklab, var(--color-ink) 16%, transparent));
 }
 
-// The camera display area — the rotating photo series renders inside this box.
+/* The camera display area — the rotating photo series renders inside this box. */
 .camera-screen {
   position: absolute;
   left: 8.98%;

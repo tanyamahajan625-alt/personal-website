@@ -20,3 +20,4 @@
 - [x] Enhance Work History with role filters, PMM-focused copy, expandable breakdowns, and resume download
 - [x] Redesign Projects as an interactive case-file system with HYPHEN campaign media
 - [x] Add TelcoX analysis file download to the Projects case file
+- [x] Add Durex final strategy deck download to the Projects case file

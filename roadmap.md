@@ -21,3 +21,5 @@
 - [x] Redesign Projects as an interactive case-file system with HYPHEN campaign media
 - [x] Add TelcoX analysis file download to the Projects case file
 - [x] Add Durex final strategy deck download to the Projects case file
+- [x] Remove HYPHEN gallery photos 02 and 04
+- [ ] Add HYPHEN "what I did" pointers and a Partnership Blueprint visual behind [ View Partnership Blueprint -> ]

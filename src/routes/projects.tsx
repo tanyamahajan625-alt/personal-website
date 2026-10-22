@@ -99,13 +99,15 @@ function ProjectsPage() {
   const activeProject = PROJECTS.find((project) => project.id === activeId) ?? PROJECTS[0];
 
   useEffect(() => {
-    if (!lightbox) return;
+    if (!lightbox && !blueprintOpen) return;
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setLightbox(null);
+      if (event.key !== "Escape") return;
+      setLightbox(null);
+      setBlueprintOpen(false);
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
-  }, [lightbox]);
+  }, [lightbox, blueprintOpen]);
 
   if (!activeProject) return null;
 

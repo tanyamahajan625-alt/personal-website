@@ -96,6 +96,7 @@ function ProjectsPage() {
   const [galleryMode, setGalleryMode] = useState<GalleryMode>("visual");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [artifactOpen, setArtifactOpen] = useState(false);
+  const [blueprintOpen, setBlueprintOpen] = useState(false);
   const activeProject = PROJECTS.find((project) => project.id === activeId) ?? PROJECTS[0];
 
   useEffect(() => {

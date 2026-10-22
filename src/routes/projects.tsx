@@ -28,6 +28,7 @@ const PROJECTS = [
     ],
     brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
     tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
+    pointers: [] as string[],
     action: "Open Full Strategy Deck",
     download: {
       href: durexStrategyDeck.url,

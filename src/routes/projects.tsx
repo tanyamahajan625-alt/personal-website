@@ -257,14 +257,8 @@ function ProjectArtifact({ id, expanded }: { id: ProjectId; expanded: boolean })
 }
 
 function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode; onModeChange: (mode: GalleryMode) => void; onOpenImage: (src: string, alt: string) => void }) {
-  const imageSlots: [
-    { src: string; alt: string; tag: string; text: string },
-    { src: string; alt: string; tag: string; text: string },
-    { src: string; alt: string; tag: string; text: string },
-  ] = [
+  const imageSlots = [
     { src: campaignImage.url, alt: "mCaffeine campaign and co-branding profile", tag: "01 // D2C Partnership Architecture & Co-Branding Visuals", text: "Cross-brand positioning across mCaffeine's ecosystem and Hyphen's D2C launch assets." },
-    { src: creativeTestingImage.url, alt: "HYPHEN creative campaign frame", tag: "02 // High-Converting Ad Creatives & Creative Testing", text: "A/B creative variations supporting performance-led launch campaigns." },
-    { src: retailActivationImage.url, alt: "HYPHEN mobile campaign and retail activation", tag: "04 // Retail Touchpoints & Partnership Growth Blueprint", text: "Mobile-first campaign touchpoints connecting storytelling to omnichannel activation." },
   ];
 
   return (

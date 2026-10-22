@@ -326,3 +326,59 @@ function VideoArtifact({ src, tag }: { src: string; tag: string }) {
     </figure>
   );
 }
+
+function PartnershipBlueprint() {
+  const stages = [
+    { n: "01", title: "Partnership Audit", did: ["Mapped the D2C brand ecosystem across the mCaffeine portfolio", "Scored each brand on audience overlap and commercial upside"], output: "Brand-fit shortlist" },
+    { n: "02", title: "Ecosystem Architecture", did: ["Designed the 5-brand co-branding structure and value exchange", "Defined offer pairings, partner roles, and rollout sequencing"], output: "Partnership framework" },
+    { n: "03", title: "Positioning & Story", did: ["Wrote the HYPHEN 0-to-1 launch narrative", "Built messaging for the D2C debut and every partner touchpoint"], output: "Launch story + pitch" },
+    { n: "04", title: "Activation", did: ["Ran creative A/B testing across launch campaigns (+18% CTR)", "Produced reels, retail collateral, and omnichannel assets"], output: "Campaign kit" },
+    { n: "05", title: "Revenue Linkage", did: ["Tracked partnership activity back to subsidiary P&L", "Reported $11M+ revenue impact to commercial leadership"], output: "Impact report" },
+  ];
+
+  return (
+    <div className="blueprint-sheet">
+      <div className="blueprint-head">
+        <div>
+          <p className="project-label">Exhibit A / Partnership Architecture</p>
+          <h3 className="blueprint-title">HYPHEN // Partnership Blueprint</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink/70">
+            The multi-brand D2C co-branding system I built end to end — from ecosystem audit through to commercial revenue.
+          </p>
+        </div>
+        <span className="project-category-stamp project-category-stamp-large">[ DRAFT 01 ]</span>
+      </div>
+
+      <div className="blueprint-impact">
+        {[
+          { v: "5", l: "D2C Brands" },
+          { v: "$11M+", l: "Revenue Impact" },
+          { v: "+18%", l: "Creative CTR Lift" },
+          { v: "0→1", l: "Brand Launch" },
+        ].map((item) => (
+          <div key={item.l} className="blueprint-impact-cell"><strong>{item.v}</strong><span>{item.l}</span></div>
+        ))}
+      </div>
+
+      <div className="blueprint-stages">
+        {stages.map((stage) => (
+          <article key={stage.n} className="blueprint-stage">
+            <span className="blueprint-stage-number">{stage.n}</span>
+            <h4>{stage.title}</h4>
+            <ul>{stage.did.map((line) => <li key={line}>{line}</li>)}</ul>
+            <span className="blueprint-deliverable">[ {stage.output} ]</span>
+          </article>
+        ))}
+      </div>
+
+      <div className="blueprint-flow" aria-hidden>
+        <span>AUDIT</span><i>→</i><span>ARCHITECT</span><i>→</i><span>POSITION</span><i>→</i><span>ACTIVATE</span><i>→</i><span>MEASURE</span>
+      </div>
+
+      <div className="blueprint-foot">
+        <span>PREPARED BY TANYA MAHAJAN</span>
+        <span>mCAFFEINE ECOSYSTEM / COMMERCIAL GROWTH</span>
+      </div>
+    </div>
+  );
+}

@@ -1017,3 +1017,33 @@
   padding: 0.12rem 0.4rem;
   border-radius: 2px;
 }
+
+/* Project exhibits (TelcoX / Durex) */
+.exhibit-code { margin-top: 1.25rem; }
+.exhibit-code pre {
+  margin-top: 0.5rem;
+  overflow-x: auto;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 25%, transparent);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 1rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+.exhibit-compare { margin-top: 1.25rem; display: grid; gap: 0.5rem; }
+.exhibit-compare-row {
+  display: grid;
+  gap: 0.25rem;
+  border: 1px dashed color-mix(in oklab, var(--color-ink) 30%, transparent);
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  color: color-mix(in oklab, var(--color-ink) 75%, transparent);
+}
+.exhibit-compare-row strong { color: var(--color-ink); text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; }
+.exhibit-compare-win { border-style: solid; border-color: var(--color-file-red); }
+@media (min-width: 768px) {
+  .exhibit-compare-row { grid-template-columns: 14rem 1fr; align-items: baseline; }
+}

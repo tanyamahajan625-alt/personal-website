@@ -1,3 +1,4 @@
+import type React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChevronRight, Download, FileText, Pause, Play, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -121,7 +122,7 @@ function ProjectsPage() {
   if (!activeProject) return null;
 
   const isHyphen = activeProject.id === "hyphen";
-  const actionLabel = isHyphen ? "View Partnership Blueprint" : artifactOpen ? "Close File" : activeProject.action;
+  const actionLabel = activeProject.action;
 
   function selectProject(id: ProjectId) {
     setActiveId(id);
@@ -203,10 +204,10 @@ function ProjectsPage() {
                 type="button"
                 variant="outline"
                 className="project-action mt-7"
-                aria-expanded={isHyphen ? blueprintOpen : artifactOpen}
-                onClick={() => (isHyphen ? setBlueprintOpen(true) : setArtifactOpen((current) => !current))}
+                aria-expanded={blueprintOpen}
+                onClick={() => setBlueprintOpen(true)}
               >
-                [ {actionLabel} {isHyphen ? "->" : artifactOpen ? "×" : "->"} ]
+                [ {actionLabel} -> ]
               </Button>
               {activeProject.download ? (
                 <a
@@ -251,12 +252,12 @@ function ProjectsPage() {
       ) : null}
 
       {blueprintOpen ? (
-        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label="HYPHEN partnership blueprint" onClick={() => setBlueprintOpen(false)}>
+        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label={`${activeProject.shortTitle} exhibit`} onClick={() => setBlueprintOpen(false)}>
           <div className="project-lightbox-file project-blueprint-file" onClick={(event) => event.stopPropagation()}>
             <Button type="button" variant="ghost" size="icon" className="project-lightbox-close" aria-label="Close blueprint" onClick={() => setBlueprintOpen(false)}>
               <X aria-hidden className="size-5" />
             </Button>
-            <PartnershipBlueprint />
+            {isHyphen ? <PartnershipBlueprint /> : activeProject.id === "telcox" ? <TelcoxExhibit /> : <DurexExhibit />}
           </div>
         </div>
       ) : null}
@@ -419,5 +420,144 @@ function PartnershipBlueprint() {
         <span>mCAFFEINE ECOSYSTEM / COMMERCIAL GROWTH</span>
       </div>
     </div>
+  );
+}
+function ExhibitShell({ label, title, intro, stamp, impact, children, foot }: { label: string; title: string; intro: string; stamp: string; impact: { v: string; l: string }[]; children: React.ReactNode; foot: [string, string] }) {
+  return (
+    <div className="blueprint-sheet">
+      <div className="blueprint-head">
+        <div>
+          <p className="project-label">{label}</p>
+          <h3 className="blueprint-title">{title}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink/70">{intro}</p>
+        </div>
+        <span className="project-category-stamp project-category-stamp-large">[ {stamp} ]</span>
+      </div>
+      <div className="blueprint-impact">
+        {impact.map((item) => (
+          <div key={item.l} className="blueprint-impact-cell"><strong>{item.v}</strong><span>{item.l}</span></div>
+        ))}
+      </div>
+      {children}
+      <div className="blueprint-foot"><span>{foot[0]}</span><span>{foot[1]}</span></div>
+    </div>
+  );
+}
+
+function StageGrid({ stages }: { stages: { n: string; title: string; did: string[]; output: string }[] }) {
+  return (
+    <div className="blueprint-stages">
+      {stages.map((stage) => (
+        <article key={stage.n} className="blueprint-stage">
+          <span className="blueprint-stage-number">{stage.n}</span>
+          <h4>{stage.title}</h4>
+          <ul>{stage.did.map((line) => <li key={line}>{line}</li>)}</ul>
+          <span className="blueprint-deliverable">[ {stage.output} ]</span>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+const TELCOX_CODE = `# 1. Two-in-one interaction model -> customer-level CATE
+fit_cate <- lm(spend ~ . * treatment_group, data = train_df)
+test_df <- test_df %>%
+  mutate(y_1  = predict(fit_cate, mutate(., treatment_group = 1)),
+         y_0  = predict(fit_cate, mutate(., treatment_group = 0)),
+         cate = y_1 - y_0)
+
+# 2. Target only when incremental profit beats ad cost
+margin <- 0.37; cost <- 0.10
+test_df$policy_optimal <- as.integer(margin * test_df$cate > cost)
+
+# 3. Inverse-probability-weighted profit evaluation
+profit_i <- ((1 - T) / (1 - p)) * (1 - policy) * margin * spend +
+            (T / p) * policy * (margin * spend - cost)`;
+
+function TelcoxExhibit() {
+  return (
+    <ExhibitShell
+      label="Exhibit B / Causal Analysis & Code"
+      title="TelcoX // Personalized Retargeting Engine"
+      intro="Blanket retargeting lost money on average. I used the randomized A/B test to estimate each customer's incremental spend (CATE) in R, then built a policy that only retargets customers who are profitable to reach."
+      stamp="R MARKDOWN"
+      impact={[
+        { v: "-$0.055", l: "Profit / Customer (Blanket)" },
+        { v: "CATE", l: "Per-Customer Uplift" },
+        { v: "23.7%", l: "Customers Targeted" },
+        { v: "$974K", l: "Optimal Profit / 1M" },
+      ]}
+      foot={["PREPARED BY TANYA MAHAJAN", "UCHICAGO BOOTH / R · TIDYVERSE · LM"]}
+    >
+      <StageGrid
+        stages={[
+          { n: "01", title: "Validate the Test", did: ["Checked randomization balance across treatment & control", "Confirmed groups were comparable before estimating lift"], output: "Clean experiment" },
+          { n: "02", title: "Average Effect", did: ["Estimated average incremental effect (AIE) of retargeting", "margin × AIE − cost = −$0.055 → blanket targeting loses money"], output: "Business case" },
+          { n: "03", title: "Predict CATE", did: ["Fit an lm() with treatment interactions on every feature", "CATE = ŷ(treated) − ŷ(control); range −120 to 1,575"], output: "Uplift scores" },
+          { n: "04", title: "Validate with Lift", did: ["Ranked customers into CATE score groups", "Lift chart confirmed high-score groups truly respond more"], output: "Model check" },
+          { n: "05", title: "Optimal Policy", did: ["Target only if margin × CATE > cost", "Compared vs. 0% & 100% targeting with IPW profit"], output: "$974K / 1M users" },
+        ]}
+      />
+      <div className="blueprint-flow" aria-hidden>
+        <span>A/B DATA</span><i>→</i><span>AIE</span><i>→</i><span>CATE MODEL</span><i>→</i><span>LIFT TEST</span><i>→</i><span>TARGET POLICY</span>
+      </div>
+      <div className="exhibit-code">
+        <p className="project-label">[ CODE EXCERPT // Tanya_Mahajan_Final_Submission.Rmd ]</p>
+        <pre><code>{TELCOX_CODE}</code></pre>
+      </div>
+      <div className="exhibit-compare">
+        {[
+          { l: "Target nobody", d: "Leaves incremental spend on the table" },
+          { l: "Target everyone", d: "Pays for ads on customers with negative uplift" },
+          { l: "Optimal (top 23.7%)", d: "Highest profit — $974,318 per 1M customers", win: true },
+        ].map((row) => (
+          <div key={row.l} className={row.win ? "exhibit-compare-row exhibit-compare-win" : "exhibit-compare-row"}>
+            <strong>{row.l}</strong><span>{row.d}</span>
+          </div>
+        ))}
+      </div>
+    </ExhibitShell>
+  );
+}
+
+function DurexExhibit() {
+  return (
+    <ExhibitShell
+      label="Exhibit C / Strategy Deck Summary"
+      title="Durex // IntiMate GTM Strategy"
+      intro="A 0-to-1 app concept for India's growing long-distance couples — taking Durex from purely sexual wellness into emotional intimacy, with a full monetization, marketing, and rollout plan."
+      stamp="23-PAGE DECK"
+      impact={[
+        { v: "66%", l: "LDR Couples Miss Intimacy" },
+        { v: "3 Tiers", l: "₹169 / ₹239 / ₹299" },
+        { v: "40%", l: "Durex India Share" },
+        { v: "Metro → T3", l: "Phased Launch" },
+      ]}
+      foot={["PREPARED BY TANYA MAHAJAN & TEAM", "RECKITT · UCHICAGO BOOTH / BRAND MANAGEMENT"]}
+    >
+      <StageGrid
+        stages={[
+          { n: "01", title: "Landscape", did: ["Mapped condom market share (Manforce 32%, Durex 14%)", "Shift from health-focused to pleasure & inclusivity"], output: "Market map" },
+          { n: "02", title: "Gen Z Insight", did: ["Surveyed long-distance couples aged 18–24", "Top pains: no physical intimacy, scheduling, shared activities"], output: "Unmet need" },
+          { n: "03", title: "Product: IntiMate", did: ["Date planner, co-streaming, games, shared diary", "Gifting with Durex discounts; end-to-end encryption"], output: "App concept" },
+          { n: "04", title: "Monetize", did: ["Standard / Premium / Premium+ subscriptions", "Ads, gift partners, paid wellness-expert sessions"], output: "Revenue model" },
+          { n: "05", title: "Go to Market", did: ["Wellness influencers, celebrity ads, telco data bundles", "Metro launch → rural pilot; regulatory workarounds"], output: "Rollout plan" },
+        ]}
+      />
+      <div className="blueprint-flow" aria-hidden>
+        <span>AWARENESS</span><i>→</i><span>CONSIDERATION</span><i>→</i><span>TRIAL</span><i>→</i><span>LOYALTY</span><i>→</i><span>ADVOCACY</span>
+      </div>
+      <div className="exhibit-compare">
+        {[
+          { l: "Brand pyramid", d: "Safe, private platform → closer couples → human connection → trusted intimacy partner" },
+          { l: "Why Durex can win", d: "Young online audience, no one-stop rival (Between, Couply), Reckitt scale & Indian manufacturing" },
+          { l: "Brand stretch precedent", d: "Dove → Dove Men+Care: new audience, same core DNA", win: true },
+        ].map((row) => (
+          <div key={row.l} className={row.win ? "exhibit-compare-row exhibit-compare-win" : "exhibit-compare-row"}>
+            <strong>{row.l}</strong><span>{row.d}</span>
+          </div>
+        ))}
+      </div>
+    </ExhibitShell>
   );
 }

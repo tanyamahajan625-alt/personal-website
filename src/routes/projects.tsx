@@ -112,6 +112,7 @@ function ProjectsPage() {
   function selectProject(id: ProjectId) {
     setActiveId(id);
     setArtifactOpen(false);
+    setBlueprintOpen(false);
   }
 
   return (

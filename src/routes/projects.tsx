@@ -52,7 +52,7 @@ const PROJECTS = [
       href: telcoxAnalysis.url,
       filename: "Tanya_Mahajan_Final_Submission.Rmd",
       label: "Analysis source & write-up",
-      meta: "R Markdown · 18 KB · CATE model, A/B test, targeting policy",
+      meta: "R Markdown · 18 KB · CATE analysis, code & policy",
     },
   },
   {
@@ -183,7 +183,7 @@ function ProjectsPage() {
                 >
                   <FileText aria-hidden className="size-4 shrink-0 text-file-red" />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate font-mono text-xs font-semibold">{activeProject.download.filename}</span>
+                    <span className="block font-mono text-xs font-semibold">{activeProject.download.filename}</span>
                     <span className="mt-1 block font-mono text-[0.6rem] leading-relaxed text-ink/55">{activeProject.download.meta}</span>
                   </span>
                   <span className="project-download-cta">

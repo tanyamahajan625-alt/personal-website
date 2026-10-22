@@ -52,6 +52,7 @@ const PROJECTS = [
     ],
     brief: "Engineered a profit-maximizing retargeting model in R using CATE causal machine learning to prevent ad spend cannibalization and outperform blanket targeting.",
     tags: ["Causal Inference", "R / Econometrics", "A/B Testing"],
+    pointers: [] as string[],
     action: "View Causal Analysis & Code",
     download: {
       href: telcoxAnalysis.url,

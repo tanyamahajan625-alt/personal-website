@@ -14,28 +14,28 @@ type GalleryMode = "visual" | "video";
 
 const PROJECTS = [
   {
-    id: "durex" as const,
+    id: "hyphen" as const,
     number: "01",
-    shortTitle: "Durex GTM Strategy",
-    subtitle: "Intimacy tech concept & launch",
-    category: "Product Marketing & GTM",
-    title: "Durex GTM & Intimacy Tech Strategy",
-    institution: "Reckitt Benckiser · University of Chicago Booth School of Business",
+    shortTitle: "HYPHEN Brand Launch",
+    subtitle: "Partnership growth system",
+    category: "Commercial Growth & Partnerships",
+    title: "HYPHEN Brand Launch & Partnerships",
+    institution: "mCaffeine Ecosystem",
     metrics: [
-      { value: "$20M+", label: "TAM Identified" },
-      { value: "150+", label: "Gen Z Interviews" },
-      { value: "+15%", label: "Projected 3-Yr Lift" },
+      { value: "5 D2C", label: "Brand Ecosystem" },
+      { value: "$11M+", label: "Revenue Impact" },
     ],
-    brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
-    tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
-    pointers: [] as string[],
-    action: "Open Full Strategy Deck",
-    download: {
-      href: durexStrategyDeck.url,
-      filename: "Brand_Management_final_project.pdf",
-      label: "Full strategy deck",
-      meta: "PDF · 23 pages · Gen Z research, positioning & GTM plan",
-    },
+    brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
+    tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
+    pointers: [
+      "Mapped the 5-brand D2C co-branding ecosystem and built the partnership-fit framework used to prioritize collaborations.",
+      "Wrote HYPHEN's 0-to-1 launch story and positioning narrative for the D2C debut.",
+      "Built the partnership pitch assets and co-branding concepts taken to brand stakeholders.",
+      "Ran creative A/B testing across launch campaigns, lifting CTR by 18%.",
+      "Connected activation touchpoints — reels, retail collateral, omnichannel rollout — back to $11M+ subsidiary revenue impact.",
+    ],
+    action: "View Partnership Blueprint",
+    download: null,
   },
   {
     id: "telcox" as const,
@@ -62,28 +62,28 @@ const PROJECTS = [
     },
   },
   {
-    id: "hyphen" as const,
+    id: "durex" as const,
     number: "03",
-    shortTitle: "HYPHEN Brand Launch",
-    subtitle: "Partnership growth system",
-    category: "Commercial Growth & Partnerships",
-    title: "HYPHEN Brand Launch & Partnerships",
-    institution: "mCaffeine Ecosystem",
+    shortTitle: "Durex GTM Strategy",
+    subtitle: "Intimacy tech concept & launch",
+    category: "Product Marketing & GTM",
+    title: "Durex GTM & Intimacy Tech Strategy",
+    institution: "Reckitt Benckiser · University of Chicago Booth School of Business",
     metrics: [
-      { value: "5 D2C", label: "Brand Ecosystem" },
-      { value: "$11M+", label: "Revenue Impact" },
+      { value: "$20M+", label: "TAM Identified" },
+      { value: "150+", label: "Gen Z Interviews" },
+      { value: "+15%", label: "Projected 3-Yr Lift" },
     ],
-    brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
-    tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
-    pointers: [
-      "Mapped the 5-brand D2C co-branding ecosystem and built the partnership-fit framework used to prioritize collaborations.",
-      "Wrote HYPHEN's 0-to-1 launch story and positioning narrative for the D2C debut.",
-      "Built the partnership pitch assets and co-branding concepts taken to brand stakeholders.",
-      "Ran creative A/B testing across launch campaigns, lifting CTR by 18%.",
-      "Connected activation touchpoints — reels, retail collateral, omnichannel rollout — back to $11M+ subsidiary revenue impact.",
-    ],
-    action: "View Partnership Blueprint",
-    download: null,
+    brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
+    tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
+    pointers: [] as string[],
+    action: "Open Full Strategy Deck",
+    download: {
+      href: durexStrategyDeck.url,
+      filename: "Brand_Management_final_project.pdf",
+      label: "Full strategy deck",
+      meta: "PDF · 23 pages · Gen Z research, positioning & GTM plan",
+    },
   },
 ];
 
@@ -100,7 +100,7 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
-  const [activeId, setActiveId] = useState<ProjectId>("durex");
+  const [activeId, setActiveId] = useState<ProjectId>("hyphen");
   const [galleryMode, setGalleryMode] = useState<GalleryMode>("visual");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [artifactOpen, setArtifactOpen] = useState(false);

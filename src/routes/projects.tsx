@@ -9,6 +9,7 @@ import retailActivationImage from "@/assets/projects/omnichannel-retail-activati
 import tennisCampaignVideo from "@/assets/projects/dewy-prep-tennis-court.mp4.asset.json";
 import campaignRecordingVideo from "@/assets/projects/hyphen-campaign-screen-recording.mov.asset.json";
 import telcoxAnalysis from "@/assets/projects/tanya-mahajan-final-submission.Rmd.asset.json";
+import durexStrategyDeck from "@/assets/projects/brand-management-final-project.pdf.asset.json";
 
 type ProjectId = "durex" | "telcox" | "hyphen";
 type GalleryMode = "visual" | "video";
@@ -30,7 +31,12 @@ const PROJECTS = [
     brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
     tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
     action: "Open Full Strategy Deck",
-    download: null,
+    download: {
+      href: durexStrategyDeck.url,
+      filename: "Brand_Management_final_project.pdf",
+      label: "Full strategy deck",
+      meta: "PDF · 23 pages · Gen Z research, positioning & GTM plan",
+    },
   },
   {
     id: "telcox" as const,

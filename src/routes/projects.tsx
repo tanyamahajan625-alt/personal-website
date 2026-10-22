@@ -207,7 +207,7 @@ function ProjectsPage() {
                 aria-expanded={blueprintOpen}
                 onClick={() => setBlueprintOpen(true)}
               >
-                [ {actionLabel} -> ]
+                [ {actionLabel} {"->"} ]
               </Button>
               {activeProject.download ? (
                 <a

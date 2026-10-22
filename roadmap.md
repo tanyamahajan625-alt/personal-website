@@ -15,6 +15,7 @@
   - [x] Route every Return to Desk sign to the folder landing
   - [x] Build Contact page with resume download
   - [x] Verify desktop and mobile navigation
+- [x] Add the camera display graphic to the Photography page (screen ready for rotating shots)
 - [ ] Add Tanya's personal photography shots when supplied
 - [x] Removed backgrounds from LinkedIn + Substack logo buttons
 - [x] Enhance Work History with role filters, PMM-focused copy, expandable breakdowns, and resume download

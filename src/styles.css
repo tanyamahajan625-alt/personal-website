@@ -990,11 +990,19 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 700ms ease;
 }
 
+/* Incoming shot sits on top instantly; the outgoing one fades out beneath it,
+   so the blank display never shows through during the crossfade. */
 .camera-shot-active {
   opacity: 1;
+  z-index: 2;
+}
+
+.camera-shot-fading {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 700ms ease;
 }
 
 .camera-frame-counter {

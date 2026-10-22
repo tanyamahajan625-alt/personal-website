@@ -729,15 +729,16 @@
 .campaign-media-grid, .campaign-video-grid { display: grid; gap: 1rem; }
 .campaign-media-card { position: relative; border: 1px solid color-mix(in oklab, var(--color-ink) 30%, transparent); background: var(--color-paper); padding: 0.65rem; box-shadow: 4px 4px 0 color-mix(in oklab, var(--color-ink) 14%, transparent); }
 .campaign-media-card::before { content: ""; position: absolute; z-index: 2; top: -0.35rem; left: 45%; width: 2.8rem; height: 0.75rem; rotate: -3deg; background: color-mix(in oklab, var(--color-butter) 72%, transparent); }
-.campaign-image-button { position: relative; display: block; width: 100%; cursor: zoom-in; overflow: hidden; border: 0; background: var(--color-cream); padding: 0; }
-.campaign-image-button img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 220ms ease; }
-.campaign-image-button:hover img { transform: scale(1.025); }
+.campaign-image-button { position: relative; display: block; width: 100%; cursor: default; overflow: hidden; border: 0; background: var(--color-cream); padding: 0; }
+.campaign-image-button img { display: block; width: 100%; height: auto; object-fit: contain; }
+.artifact-hyphen-video { padding: 0; overflow: hidden; background: var(--color-ink); }
+.artifact-hyphen-video video { display: block; width: 100%; height: 100%; max-height: 28rem; object-fit: contain; }
 .campaign-image-button > span { position: absolute; right: 0.5rem; bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem; background: color-mix(in oklab, var(--color-ink) 88%, transparent); padding: 0.4rem 0.55rem; font-family: var(--font-mono); font-size: 0.56rem; color: var(--color-cream); }
 .campaign-media-card figcaption { display: grid; gap: 0.45rem; padding: 0.85rem 0.35rem 0.25rem; }
 .campaign-media-card figcaption strong { font-family: var(--font-mono); font-size: 0.62rem; line-height: 1.45; color: var(--color-file-red); }
 .campaign-media-card figcaption span { font-size: 0.78rem; line-height: 1.5; color: color-mix(in oklab, var(--color-ink) 68%, transparent); }
 .campaign-video-wrap { position: relative; display: grid; place-items: center; overflow: hidden; background: var(--color-ink); aspect-ratio: 16 / 10; }
-.campaign-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.campaign-video-wrap video { width: 100%; height: 100%; object-fit: contain; }
 .campaign-video-card .campaign-video-wrap { aspect-ratio: 9 / 12; max-height: 34rem; }
 .campaign-play { position: absolute; border-radius: 0; box-shadow: 3px 3px 0 color-mix(in oklab, var(--color-ink) 28%, transparent); }
 .project-lightbox { position: fixed; inset: 0; z-index: 500; display: grid; place-items: center; padding: 1rem; background: color-mix(in oklab, var(--color-ink) 72%, transparent); backdrop-filter: blur(4px); }

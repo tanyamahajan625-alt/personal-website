@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight, Download, FileText, Maximize2, Pause, Play, X } from "lucide-react";
+import { ChevronRight, Download, FileText, Pause, Play, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DossierPage } from "@/components/dossier-layout";
 import { Button } from "@/components/ui/button";
@@ -252,12 +252,8 @@ function ProjectArtifact({ id, expanded }: { id: ProjectId; expanded: boolean })
     );
   }
   return (
-    <div className={`artifact-preview artifact-hyphen ${expanded ? "artifact-expanded" : ""}`} aria-label="HYPHEN partnership blueprint preview">
-      <div className="artifact-toolbar"><span>PARTNERSHIP MAP</span><span>5 BRANDS</span></div>
-      <div className="artifact-network" aria-hidden>
-        <span>HYPHEN</span><i /><b>CONTENT</b><i /><b>RETAIL</b><i /><b>CRM</b>
-      </div>
-      <p>CO-BRANDING SYSTEM → ACTIVATION → COMMERCIAL GROWTH</p>
+    <div className={`artifact-preview artifact-hyphen-video ${expanded ? "artifact-expanded" : ""}`} aria-label="HYPHEN campaign video">
+      <video src={campaignRecordingVideo.url} autoPlay muted loop playsInline preload="auto" />
     </div>
   );
 }
@@ -305,21 +301,20 @@ function HyphenGallery({ mode, onModeChange, onOpenImage }: { mode: GalleryMode;
 function ImageArtifact({ src, alt, tag, text, onOpen }: { src: string; alt: string; tag: string; text: string; onOpen: (src: string, alt: string) => void }) {
   return (
     <figure className="campaign-media-card">
-      <Button type="button" variant="ghost" className="campaign-image-button" onClick={() => onOpen(src, alt)} aria-label={`Open ${tag}`}>
+      <div className="campaign-image-button" onClick={() => onOpen(src, alt)}>
         <img src={src} alt={alt} />
-        <span><Maximize2 aria-hidden className="size-4" /> Inspect</span>
-      </Button>
+      </div>
       <figcaption><strong>{tag}</strong><span>{text}</span></figcaption>
     </figure>
   );
 }
 
 function VideoArtifact({ src, tag }: { src: string; tag: string }) {
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
   return (
     <figure className="campaign-media-card campaign-video-card">
       <div className="campaign-video-wrap">
-        <video src={src} playsInline preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} />
+        <video src={src} autoPlay muted loop playsInline preload="auto" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} />
         <Button
           type="button"
           variant="secondary"

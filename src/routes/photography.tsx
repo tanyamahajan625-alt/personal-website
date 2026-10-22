@@ -35,10 +35,13 @@ export const Route = createFileRoute("/photography")({
 });
 
 function PhotographyPage() {
-  const [index, setIndex] = useState(0);
+  const [reel, setReel] = useState({ index: 0, prev: 0 });
 
   useEffect(() => {
-    const timer = setInterval(() => setIndex((i) => (i + 1) % SHOTS.length), ROTATE_MS);
+    const timer = setInterval(
+      () => setReel(({ index }) => ({ index: (index + 1) % SHOTS.length, prev: index })),
+      ROTATE_MS,
+    );
     return () => clearInterval(timer);
   }, []);
 
@@ -49,17 +52,20 @@ function PhotographyPage() {
           <img src={cameraAsset.url} alt="Pink point-and-shoot camera, back view showing the display" className="camera-body image-pixelated" />
           {/* The camera display — a rotating reel of Tanya's shots */}
           <div className="camera-screen" aria-label="Camera display showing a rotating photo reel">
-            {SHOTS.map((shot, i) => (
-              <img
-                key={shot.src.url}
-                src={shot.src.url}
-                alt={shot.alt}
-                className={`camera-shot${i === index ? " camera-shot-active" : ""}`}
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-            ))}
+            {SHOTS.map((shot, i) => {
+              const state = i === reel.index ? " camera-shot-active" : i === reel.prev ? " camera-shot-fading" : "";
+              return (
+                <img
+                  key={shot.src.url}
+                  src={shot.src.url}
+                  alt={shot.alt}
+                  className={`camera-shot${state}`}
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              );
+            })}
             <span className="camera-frame-counter font-mono" aria-hidden>
-              {String(index + 1).padStart(2, "0")}/{String(SHOTS.length).padStart(2, "0")}
+              {String(reel.index + 1).padStart(2, "0")}/{String(SHOTS.length).padStart(2, "0")}
             </span>
           </div>
         </div>

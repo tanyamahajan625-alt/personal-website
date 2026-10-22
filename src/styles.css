@@ -918,6 +918,7 @@
     font-size: 0.5rem;
     letter-spacing: 0;
   }
+  .desk-hint { margin-top: 2.25rem; }
   .desktop-grid { min-height: 640px; }
   .pixel-link { width: clamp(6.5rem, 30vw, 9rem); gap: 0.5rem; }
   .pixel-art > img { max-height: 6.5rem; }

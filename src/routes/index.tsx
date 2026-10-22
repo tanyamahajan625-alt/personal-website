@@ -96,7 +96,7 @@ function PortfolioDesk() {
       <section className="flex min-h-dvh items-center px-4 py-10">
         <Link to="/" search={{}} className="desk-return-sign">[ RETURN TO DESK ↑ ]</Link>
         <div className="mx-auto w-full max-w-6xl">
-          <p className="text-center font-mono text-xs tracking-[0.12em] sm:text-sm">[click icons to learn more]</p>
+          <p className="desk-hint text-center font-mono text-xs tracking-[0.12em] sm:text-sm">[click icons to learn more]</p>
           <div className="desktop-grid mx-auto mt-6 min-h-[650px] max-w-5xl sm:min-h-[720px]">
             <DesktopLink to="/memos" label="Substack Memos" delayClass="pixel-delay-1" className="desk-memos"><img src={assetUrl(notepadAsset)} alt="Pixel-art notepad and pen" /></DesktopLink>
             <DesktopLink to="/about" label="Personnel File" delayClass="pixel-delay-2" className="desk-about"><img src={assetUrl(booksAsset)} alt="Pixel-art book stack" /></DesktopLink>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight, Maximize2, Pause, Play, X } from "lucide-react";
+import { ChevronRight, Download, FileText, Maximize2, Pause, Play, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DossierPage } from "@/components/dossier-layout";
 import { Button } from "@/components/ui/button";
@@ -175,6 +175,22 @@ function ProjectsPage() {
               >
                 [ {artifactOpen ? "Close File" : activeProject.action} {artifactOpen ? "×" : "->"} ]
               </Button>
+              {activeProject.download ? (
+                <a
+                  className="project-file-download mt-6"
+                  href={activeProject.download.href}
+                  download={activeProject.download.filename}
+                >
+                  <FileText aria-hidden className="size-4 shrink-0 text-file-red" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-mono text-xs font-semibold">{activeProject.download.filename}</span>
+                    <span className="mt-1 block font-mono text-[0.6rem] leading-relaxed text-ink/55">{activeProject.download.meta}</span>
+                  </span>
+                  <span className="project-download-cta">
+                    [ Download <Download aria-hidden className="inline size-3" /> ]
+                  </span>
+                </a>
+              ) : null}
             </div>
             <ProjectArtifact id={activeProject.id} expanded={artifactOpen} />
           </div>

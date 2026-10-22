@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight, Maximize2, Pause, Play, X } from "lucide-react";
+import { ChevronRight, Download, FileText, Maximize2, Pause, Play, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DossierPage } from "@/components/dossier-layout";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import creativeTestingImage from "@/assets/projects/creative-testing-performance
 import retailActivationImage from "@/assets/projects/omnichannel-retail-activation.jpg.asset.json";
 import tennisCampaignVideo from "@/assets/projects/dewy-prep-tennis-court.mp4.asset.json";
 import campaignRecordingVideo from "@/assets/projects/hyphen-campaign-screen-recording.mov.asset.json";
+import telcoxAnalysis from "@/assets/projects/tanya-mahajan-final-submission.Rmd.asset.json";
 
 type ProjectId = "durex" | "telcox" | "hyphen";
 type GalleryMode = "visual" | "video";
@@ -29,6 +30,7 @@ const PROJECTS = [
     brief: "Uncovered unmet Gen Z wellness needs through qualitative research to architect a 0-to-1 intimacy tech product concept and full-funnel GTM retail strategy.",
     tags: ["User Research", "TAM Modeling", "Full-Funnel Strategy"],
     action: "Open Full Strategy Deck",
+    download: null,
   },
   {
     id: "telcox" as const,
@@ -46,6 +48,12 @@ const PROJECTS = [
     brief: "Engineered a profit-maximizing retargeting model in R using CATE causal machine learning to prevent ad spend cannibalization and outperform blanket targeting.",
     tags: ["Causal Inference", "R / Econometrics", "A/B Testing"],
     action: "View Causal Analysis & Code",
+    download: {
+      href: telcoxAnalysis.url,
+      filename: "Tanya_Mahajan_Final_Submission.Rmd",
+      label: "Analysis source & write-up",
+      meta: "R Markdown · 18 KB · CATE analysis, code & policy",
+    },
   },
   {
     id: "hyphen" as const,
@@ -62,6 +70,7 @@ const PROJECTS = [
     brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
     tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
     action: "View Partnership Blueprint",
+    download: null,
   },
 ];
 
@@ -166,6 +175,22 @@ function ProjectsPage() {
               >
                 [ {artifactOpen ? "Close File" : activeProject.action} {artifactOpen ? "×" : "->"} ]
               </Button>
+              {activeProject.download ? (
+                <a
+                  className="project-file-download mt-6"
+                  href={activeProject.download.href}
+                  download={activeProject.download.filename}
+                >
+                  <FileText aria-hidden className="size-4 shrink-0 text-file-red" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-mono text-xs font-semibold">{activeProject.download.filename}</span>
+                    <span className="mt-1 block font-mono text-[0.6rem] leading-relaxed text-ink/55">{activeProject.download.meta}</span>
+                  </span>
+                  <span className="project-download-cta">
+                    [ Download <Download aria-hidden className="inline size-3" /> ]
+                  </span>
+                </a>
+              ) : null}
             </div>
             <ProjectArtifact id={activeProject.id} expanded={artifactOpen} />
           </div>

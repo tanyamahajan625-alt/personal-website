@@ -900,3 +900,33 @@
   .pixel-link { animation: none; }
   .folder-overlay-leaving { animation-duration: 1ms; }
 }
+
+/* ============ TelcoX downloadable analysis file ============ */
+.project-file-download {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 30%, transparent);
+  background: var(--color-paper);
+  padding: 0.75rem 0.85rem;
+  box-shadow: 4px 4px 0 color-mix(in oklab, var(--color-ink) 14%, transparent);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.project-file-download:hover,
+.project-file-download:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 color-mix(in oklab, var(--color-file-red) 32%, transparent);
+}
+.project-download-cta {
+  flex-shrink: 0;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 28%, transparent);
+  background: var(--color-cream);
+  padding: 0.35rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+@media (max-width: 639px) {
+  .project-file-download { flex-wrap: wrap; }
+  .project-download-cta { width: 100%; text-align: center; }
+}

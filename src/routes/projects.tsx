@@ -74,6 +74,13 @@ const PROJECTS = [
     ],
     brief: "Architected a multi-brand partnership framework and launch story connecting D2C co-branding initiatives directly to commercial revenue expansion.",
     tags: ["Partnership Growth", "D2C Activation", "Brand Storytelling"],
+    pointers: [
+      "Mapped the 5-brand D2C co-branding ecosystem and built the partnership-fit framework used to prioritize collaborations.",
+      "Wrote HYPHEN's 0-to-1 launch story and positioning narrative for the D2C debut.",
+      "Built the partnership pitch assets and co-branding concepts taken to brand stakeholders.",
+      "Ran creative A/B testing across launch campaigns, lifting CTR by 18%.",
+      "Connected activation touchpoints — reels, retail collateral, omnichannel rollout — back to $11M+ subsidiary revenue impact.",
+    ],
     action: "View Partnership Blueprint",
     download: null,
   },

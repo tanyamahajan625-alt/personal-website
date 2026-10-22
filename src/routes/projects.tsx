@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { DossierPage } from "@/components/dossier-layout";
 import { Button } from "@/components/ui/button";
 import campaignImage from "@/assets/projects/hyphen-cobranding-campaign.png.asset.json";
-import creativeTestingImage from "@/assets/projects/creative-testing-performance.jpg.asset.json";
-import retailActivationImage from "@/assets/projects/omnichannel-retail-activation.jpg.asset.json";
 import tennisCampaignVideo from "@/assets/projects/dewy-prep-tennis-court.mp4.asset.json";
 import campaignRecordingVideo from "@/assets/projects/hyphen-campaign-screen-recording.mov.asset.json";
 import telcoxAnalysis from "@/assets/projects/tanya-mahajan-final-submission.Rmd.asset.json";

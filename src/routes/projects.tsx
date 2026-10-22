@@ -42,7 +42,7 @@ const PROJECTS = [
     number: "02",
     shortTitle: "TelcoX Retargeting",
     subtitle: "Personalized causal model",
-    category: "Growth Analytics & Experimentation",
+    category: "GROWTH ANALYTICS & EXPERIMENTATION",
     title: "TelcoX Personalized Retargeting Model",
     institution: "UChicago Booth",
     metrics: [
